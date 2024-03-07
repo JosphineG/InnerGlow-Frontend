@@ -39,7 +39,7 @@ function Footer() {
             id=""
             className="w-full col-span-2  h-[80px] resize-none outline-none px-2 rounded-lg py-2"
             required={true}
-            placeholder="message here!!"
+            placeholder="message here..."
           ></textarea>
           <button className=" font-semibold text-white py-2 bg-blue-500 rounded-lg w-[250px] hover:rounded-xl hover:bg-blue-400 hover:px-4 mt-4">
             Submit
