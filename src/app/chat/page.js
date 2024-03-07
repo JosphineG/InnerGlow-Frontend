@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Chat from "../components/Chat";
 
 function page() {
   return (
-    <div>page</div>
-  )
+    <div>
+      <Chat />
+    </div>
+  );
 }
 
-export default page
+export default page;
