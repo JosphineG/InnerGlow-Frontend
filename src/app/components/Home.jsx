@@ -7,7 +7,7 @@ import Wellbeing from "./Wellbeing"
 import Community from "./Community";
 const Home= () => {
   return (
-    <div>
+    <div className="flex flex-col">
       <HomeNav/>
       <LandingPage />
       <Wellbeing/>
