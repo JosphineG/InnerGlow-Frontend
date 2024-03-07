@@ -7,14 +7,17 @@ function Chat() {
   const text =
     " Hey there! 👋 Nice to meet you. Welcome to your personal AI mate! Feel free to chat and explore with me. Let's dive in and see what we can do together. Just continue the conversation whenever you're ready!";
   return (
-    <div className="w-screen flex justify-center">
+    <div className="justify-between flex flex-col h-screen  w-screen">
       <ChatNav />
       <div className="flex flex-1 flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch pt-[130px] md:px-[150px] mb-4">
         <SystemChatItem text={text} />
         <SystemChatItem text={"So, How can I help you Today"} />
         <UserChatitem />
+        <SystemChatItem text={text} />
+        <SystemChatItem text={"So, How can I help you Today"} />
+        <UserChatitem />
       </div>
-      <div className="shadow-lg shadow-black px-4 pt-4 py-4 sm:mb-0 fixed bottom-0 w-screen bh-white bg-white md:px-[150px]">
+      <div className="shadow-lg shadow-black px-4 pt-4 py-4 sm:mb-0  bg-white md:px-[150px]">
         <form className="relative flex">
           <input
             id="userSendMessage"
