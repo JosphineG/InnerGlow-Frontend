@@ -13,7 +13,7 @@ body {
 
 /* Customize the scrollbar handle (thumb) */
 ::-webkit-scrollbar-thumb {
-  background-color: #9ae9e9; /* Set the color of the scrollbar thumb */
+  background-color: #70bbed; /* Set the color of the scrollbar thumb */
   border-radius: 6px; /* Set the border-radius for a rounded thumb */
 }
 
