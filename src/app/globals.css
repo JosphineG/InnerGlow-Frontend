@@ -2,10 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
-background: aliceblue;
+  background: #e9f1ff;
+  overflow-x: hidden;
+}
+/* Customize the scrollbar track */
+::-webkit-scrollbar {
+  width: 4px; /* Set the width of the scrollbar */
+}
+
+/* Customize the scrollbar handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #70bbed; /* Set the color of the scrollbar thumb */
+  border-radius: 6px; /* Set the border-radius for a rounded thumb */
+}
+
+/* Customize the scrollbar track when not actively scrolling */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the color of the scrollbar track */
+}
+
+/* Customize the scrollbar handle when hovered over */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #217dbb; /* Set a different color when hovered over */
+}
+
+/* Customize the scrollbar corner (if applicable) */
+::-webkit-scrollbar-corner {
+  background-color: #f1f1f1; /* Set the color of the scrollbar corner */
+}
+
+.scrollbar-w-2::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+.scrollbar-track-blue-lighter::-webkit-scrollbar-track {
+  --bg-opacity: 1;
+  background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, var(--bg-opacity));
+}
+
+.scrollbar-thumb-blue::-webkit-scrollbar-thumb {
+  --bg-opacity: 1;
+  background-color: #edf2f7;
+  background-color: rgba(237, 242, 247, var(--bg-opacity));
+}
+
+.scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
 }
 
 @layer utilities {

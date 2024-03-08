@@ -21,7 +21,7 @@ function Login() {
           <div className="w-full">
             <h2 className="mt-4 text-center md:text-2xl font-extrabold w-full text-indigo-700 text-xl">Sign In to Your Account</h2>
             <p className="mt-2 text-center text-sm text-gray-600"> Or
-            <a href="/SignUp" className="font-medium text-indigo-600 hover:text-indigo-300 px-2">Sign Up</a>
+            <a href="/signup" className="font-medium text-indigo-600 hover:text-indigo-300 px-2">Sign Up</a>
             </p>
           </div> 
           <form className="flex flex-col w-full mt-8 space-y-6">
