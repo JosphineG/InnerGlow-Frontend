@@ -17,14 +17,14 @@ function Chat() {
         <SystemChatItem text={"So, How can I help you Today"} />
         <UserChatitem />
       </div>
-      <div className="shadow-lg shadow-black px-4 pt-4 py-4 sm:mb-0  bg-white md:px-[150px]">
+      <div className="shadow-lg shadow-black px-4 pt-4 py-4 sm:mb-0  bg-[#e9f1ff] md:px-[150px]">
         <form className="relative flex">
           <input
             id="userSendMessage"
             type="text"
             placeholder="Write your message prompt!"
             required={true}
-            className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-4 bg-gray-200 rounded-md py-3"
+            className="w-full  border border-gray-500 focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-4 bg-gray-200 rounded-md py-3"
           />
           <div className="absolute right-0 items-center inset-y-0 flex gap-2">
             <button
