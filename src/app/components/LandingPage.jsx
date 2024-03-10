@@ -11,9 +11,11 @@ function LandingPage() {
           Your Compassionate Companion
         </h1>
         <p className="mb-8 mt-2">Be gentle and kind to your Mind</p>
-        <button className="px-20 py-4 bg-blue-500 rounded-full text-white font-semibold hover:bg-blue-400 hover:px-24">
-          Get Started
-        </button>
+        <a href="/chat">
+          <button className="px-20 py-4 bg-blue-500 rounded-full text-white font-semibold hover:bg-blue-400 hover:px-24">
+            Get Started
+          </button>
+        </a>
         <div className="bg-[#6495ED43] w-full flex flex-col justify-center items-center mt-12 p-4">
           <div
             className="w-full flex-col justify-center items-center text-center  md:w-[600px] ;
