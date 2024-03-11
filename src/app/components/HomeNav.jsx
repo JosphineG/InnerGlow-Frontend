@@ -22,7 +22,7 @@ const HomeNavbar = () => {
           <Link href="/community" className="text-white hover:text-gray-200">
             Community
           </Link>
-          <Link href="/community" className="text-white hover:text-gray-200">
+          <Link href="/" className="text-white hover:text-gray-200">
             Contact
           </Link>
           <div className="ml-auto">
