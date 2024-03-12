@@ -37,7 +37,7 @@ const SignUp = () => {
       );
       console.log(response);
       if (response.status === 200) {
-        window.location.href = "/chatlogin";
+        window.location.href = "/communitylogin";
       }
     } catch (error) {
       console.error(error);
@@ -65,7 +65,7 @@ const SignUp = () => {
               {" "}
               Or
               <a
-                href="/chatlogin"
+                href="/communitylogin"
                 className="font-medium text-indigo-600 hover:text-indigo-300 px-2"
               >
                 Sign In
