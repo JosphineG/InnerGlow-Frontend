@@ -13,7 +13,7 @@ function Login({ path }) {
   // })
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
+console.log(email)
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!email || !password) {
