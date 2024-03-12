@@ -63,7 +63,7 @@ function Login() {
               {" "}
               Or
               <a
-                href="/signup"
+                href="/communitysignup"
                 className="font-medium text-indigo-600 hover:text-indigo-300 px-2"
               >
                 Sign Up
