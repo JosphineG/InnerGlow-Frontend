@@ -1,9 +1,13 @@
+"use client";
 import React from "react";
 import ChatNav from "./ChatNav";
 import SystemChatItem from "./SystemChatItem";
 import UserChatitem from "./UserChatitem";
-
+import useAuthToken from "../../../hooks/useAuth";
+import Login from "./ChatLogin";
 function Chat() {
+  const { getItem } = useAuthToken();
+  const { token } = getItem();
   const text =
     " Hey there! 👋 Nice to meet you. Welcome to your personal AI mate! Feel free to chat and explore with me. Let's dive in and see what we can do together. Just continue the conversation whenever you're ready!";
   return (

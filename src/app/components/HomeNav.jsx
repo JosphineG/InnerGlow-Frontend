@@ -17,15 +17,14 @@ const HomeNavbar = () => {
           <Link href="/community"className="text-white hover:text-gray-200">
             Community
           </Link>
-          <Link href="/community"className="text-white hover:text-gray-200">
-           Contact
+          <Link href="/" className="text-white hover:text-gray-200">
+            Contact
           </Link>
           <div className='ml-auto'>
             <Link href="/get-started"className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-4 rounded-l-full rounded-r-full font-semibold">Get Started
             </Link>
           </div>
         </div>
-        
       </div>
     </nav>
   );
