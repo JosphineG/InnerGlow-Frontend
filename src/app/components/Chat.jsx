@@ -46,7 +46,7 @@ function Chat() {
         </form>
         <footer className="w-full px-4 py-2 mt-4 text-center text-gray-500 text-sm">
           <p>
-            InnerGrow AI 2024.Al rights reserved.Terms of services and Privacy
+            InnerGlow AI 2024.All rights reserved.Terms of services and Privacy
             policy
           </p>
         </footer>

@@ -6,7 +6,7 @@ function Footer() {
       <div>
         <h3 className="font-bold text-lg">Contacts</h3>
         <p className="text-gray-600">Phone No: +254795256790</p>
-        <p className="text-gray-600">Email : innergrow@gmail.com</p>
+        <p className="text-gray-600">Email : innerglow@gmail.com</p>
       </div>
       <div>
         <h3 className="font-bold text-lg md:text-center">Social links</h3>

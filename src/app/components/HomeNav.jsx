@@ -1,20 +1,18 @@
 import React from 'react'
 import Link from 'next/link';
+import Image from 'next/image';
 
 const HomeNavbar = () => {
   return (
-    <nav className="bg-[#6495ed] p-4">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="bg-blue-500  p-4 fixed w-screen z-[999] h-[80px] flex ">
+      <div className="container mx-auto flex items-center justify-between w-full">
         <div className="flex items-center">
-          {/* <img src="/logo.svg" alt="Logo" className="h-8 mr-2" /> */}
+          <Image src="/innerglow.png" alt="Logo" className="mr-2" width={200} height={0}/>
         </div>  
         
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4   justify-between md:gap-[100px] md:space-x-12">
           <Link href="#about"className="text-white hover:text-gray-200">
             About
-          </Link>
-          <Link href="/wellbeing"className="text-white hover:text-gray-200">
-           Well-being Resources
           </Link>
           <Link href="/community"className="text-white hover:text-gray-200">
             Community
@@ -23,7 +21,7 @@ const HomeNavbar = () => {
            Contact
           </Link>
           <div className='ml-auto'>
-            <Link href="/get-started"className="bg-blue-500 text-white hover:bg-blue-300 py-2 px-4 rounded-l-full rounded-r-full font-semibold">Get Started
+            <Link href="/get-started"className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-4 rounded-l-full rounded-r-full font-semibold">Get Started
             </Link>
           </div>
         </div>

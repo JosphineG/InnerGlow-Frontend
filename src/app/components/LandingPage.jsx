@@ -1,12 +1,11 @@
 import React from "react";
 import Donut from "./Donut";
-
 function LandingPage() {
   return (
     <div className="w-screen h-screen flex-col flex justify-center items-center overflow-x-hidden">
       <div className="relative w-full h-[300px] flex  justify-center items-center flex-col text-[#0C5CE5] pt-4">
         <h1 className="text-3xl text-center">
-          Welcome To InnerGrow
+          Welcome To InnerGlow
           <br />
           Your Compassionate Companion
         </h1>
@@ -21,12 +20,12 @@ function LandingPage() {
           >
             <h2 className="text-2xl mb-2">About InnerGrow</h2>
             <p className="w-full text-left ">
-              In today's interconnected world you can be surrounded by people,
+             { `In today\'s interconnected world you can be surrounded by people,
               but still feel lonely and trusting others with our vulnerabilities
-              is still hard.
+              is still hard.`}n
             </p>
             <p className="text-left mt-2">
-              <span className="text-blue-600 font-bold">InnerGrow</span> is an
+              <span className="text-blue-600 font-bold">InnerGlow</span> is an
               empathetic chatbot that serves as a confidant, providing a safe
               space for users to openly express their thoughts and emotions and
               extends a comforting hand helping you prioritize your mental
