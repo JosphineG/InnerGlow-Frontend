@@ -20,11 +20,11 @@ function LandingPage() {
             className="w-full flex-col justify-center items-center text-center  md:w-[600px] ;
 ]"
           >
-            <h2 className="text-2xl mb-2">About InnerGrow</h2>
+            <h2 className="text-2xl mb-2">About InnerGlow</h2>
             <p className="w-full text-left ">
              { `In today\'s interconnected world you can be surrounded by people,
               but still feel lonely and trusting others with our vulnerabilities
-              is still hard.`}n
+              is still hard.`}
             </p>
             <p className="text-left mt-2">
               <span className="text-blue-600 font-bold">InnerGlow</span> is an
