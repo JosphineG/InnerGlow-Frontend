@@ -1,5 +1,5 @@
 import React from "react";
-
+import { FaInstagram } from "react-icons/fa";
 function Footer() {
   return (
     <div className="w-screen sticky bg-[#6495ED47]  p-6 gap-4 grid grid-cols-1 md:grid-cols-3">
@@ -11,7 +11,9 @@ function Footer() {
       <div>
         <h3 className="font-bold text-lg md:text-center">Social links</h3>
         <div className="flex md:justify-center md:items-center text-gray-600 md:flex-col gap-4">
-          <span>In</span>
+          <span>
+            <FaInstagram/>
+          </span>
           <span>X</span>
           <span>IG</span>
           <span>FB</span>
