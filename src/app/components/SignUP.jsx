@@ -123,15 +123,7 @@ const SignUp = () => {
                   placeholder=" Confirm Password"
                 />
               </div>
-              {/* <div> */}
-              {/* Gender dropdown */}
-              {/* <select className="appearance-none rounded-none relative block w-full py-2 px-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md mb-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 small:text-sm">
-                  <option value=""disabled hidden> Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
-              </div> */}
+              
             </div>
             <div>
               <button
