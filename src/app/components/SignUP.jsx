@@ -148,7 +148,7 @@
 "use client"
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
@@ -159,9 +159,17 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const notification = toast.loading("signing you up ...");
+    if (!email || !password || !userName || !confirmPassword) {
+      toast.error("All fields are required", { id: notification });
+      return;
+    }
     if (password !== confirmPassword) {
-      setPassword("");
-      setConfirmPassword("");
+      // setPassword("");
+      // setConfirmPassword("");
+      toast.error("passwords do not match", {
+        id: notification,
+      });
       console.log("passwords do not match");
       return;
     }
@@ -190,13 +198,42 @@ const SignUp = () => {
       });
       console.log(response);
       if (response.status === 200) {
+        toast.success("Registered successfully", {
+          id: notification,
+        });
+        const { userId } = await response.json();
+        createChat(userId);
         window.location.href = "/chatlogin";
       }
     } catch (error) {
+      toast.error(error, {
+        id: notification,
+      });
       console.error(error);
     }
   };
 
+  const createChat = async (userId) => {
+    try {
+      const response = await fetch("http://127.0.0.1:5000/api/v1/chat/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+        }),
+      });
+
+      if (response.status === 200) {
+        console.log("chat created successfully");
+      }
+      const data = await response.json();
+      localStorage.setItem("chatId", data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className="flex w-screen item-center justify-center md:flex-row p-12 h-screen flex-col">
       <div className="flex items-center justify-center text-center w-full h-full gap-8">

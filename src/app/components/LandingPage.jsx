@@ -1,6 +1,11 @@
+"use client";
 import React from "react";
 import Donut from "./Donut";
+import useAuthToken from "../../../hooks/useAuth";
 function LandingPage() {
+  const { getItem } = useAuthToken();
+  const { chatid } = getItem();
+
   return (
     <div className="w-screen h-screen flex-col flex justify-center items-center overflow-x-hidden pt-4">
       <div className="relative w-full h-[300px] flex  justify-center items-center flex-col text-[#0C5CE5] pt-2">
@@ -10,7 +15,7 @@ function LandingPage() {
           Your Compassionate Companion
         </h1>
         <p className="mb-8 mt-2">Be gentle and kind to your Mind</p>
-        <a href="/chat">
+        <a href={`/chat/${chatid}`}>
           <button className="px-20 py-4 bg-blue-500 rounded-full text-white font-semibold hover:bg-blue-400 hover:px-24">
             Get Started
           </button>
@@ -22,9 +27,10 @@ function LandingPage() {
           >
             <h2 className="text-2xl mb-2">About InnerGlow</h2>
             <p className="w-full text-left ">
-             { `In today\'s interconnected world you can be surrounded by people,
+              {`In today\'s interconnected world you can be surrounded by people,
               but still feel lonely and trusting others with our vulnerabilities
               is still hard.`}
+              n
             </p>
             <p className="text-left mt-2">
               <span className="text-blue-600 font-bold">InnerGlow</span> is an
