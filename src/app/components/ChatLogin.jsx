@@ -81,7 +81,8 @@ function Login({ path }) {
               <div className="w-full rounded-md shadow-sm -space-y-px">
                 {/* input code start */}
 
-                <div>
+                <div className="flex flex-col mb-1">
+                  <label htmlFor="email" className="text-sm text-left text-gray-900 font-bold mb-2">Email</label>
                   <input
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
@@ -93,8 +94,9 @@ function Login({ path }) {
                   />
                 </div>
 
-                <div>
-                  <input
+                <div className="flex flex-col mb-1">
+                  <label htmlFor="password" className="text-sm text-left text-gray-900 font-bold mb-2">Password</label>
+                <input
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
                     autoComplete="none"

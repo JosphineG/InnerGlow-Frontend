@@ -74,7 +74,8 @@ const SignUp = () => {
           </div>
           <form className="flex flex-col w-full mt-8 space-y-6">
             <div className="w-full rounded-md shadow-sm -space-y-px">
-              <div>
+              <div className="flex flex-col mb-1">
+                <label htmlFor="username" className="text-left text-sm font-bold text-gray-700 mb-2">Username</label>
                 <input
                   onChange={(e) => {
                     setUserName(e.target.value);
@@ -87,7 +88,8 @@ const SignUp = () => {
                   placeholder="Username"
                 />
               </div>
-              <div>
+              <div className="flex flex-col mb-1" >
+               <label htmlFor="email" className="text-left text-sm font-bold text-gray-700 mb-2">Email </label>
                 <input
                   onChange={(e) => {
                     setEmail(e.target.value);
@@ -99,8 +101,9 @@ const SignUp = () => {
                   placeholder="Email address"
                 />
               </div>
-              <div>
-                <input
+              <div className="flex flex-col mb-1">
+              <label htmlFor="password" className="text-left text-sm font-bold text-gray-700 mb-2">Password </label>
+               <input
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
@@ -111,7 +114,8 @@ const SignUp = () => {
                   placeholder="Password"
                 />
               </div>
-              <div>
+              <div className="flex flex-col mb-1">
+                <label htmlFor="password" className="text-left text-sm font-bold text-gray-700 mb-2">Confirm Password </label>
                 <input
                   onChange={(e) => {
                     setConfirmPassword(e.target.value);
