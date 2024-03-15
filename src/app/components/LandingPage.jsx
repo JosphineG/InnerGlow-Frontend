@@ -2,7 +2,7 @@ import React from "react";
 import Donut from "./Donut";
 function LandingPage() {
   return (
-    <div className="w-screen h-screen flex-col flex justify-center items-center overflow-x-hidden">
+    <div className="w-screen h-screen flex-col flex justify-center items-center overflow-x-hidden mb-8">
       <div className="relative w-full h-[300px] flex  justify-center items-center flex-col text-[#0C5CE5] pt-4">
         <h1 className="text-3xl text-center">
           Welcome To InnerGlow

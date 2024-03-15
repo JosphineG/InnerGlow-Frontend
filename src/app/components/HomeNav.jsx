@@ -17,11 +17,11 @@ const HomeNavbar = () => {
           <Link href="/community"className="text-white hover:text-gray-200">
             Community
           </Link>
-          <Link href="/community"className="text-white hover:text-gray-200">
+          <Link href="/contact"className="text-white hover:text-gray-200">
            Contact
           </Link>
         </div>
-          <div className='ml-auto'>
+        <div className='ml-auto hidden sm:block'>
             <Link href="/get-started"className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-4 rounded-l-full rounded-r-full font-semibold">Get Started
             </Link>
           </div>
