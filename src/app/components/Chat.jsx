@@ -4,12 +4,7 @@ import ChatNav from "./ChatNav";
 import SystemChatItem from "./SystemChatItem";
 import UserChatitem from "./UserChatitem";
 import useAuthToken from "../../../hooks/useAuth";
-<<<<<<< HEAD
-import Login from "./ChatLogin";
-import toast, { Toaster } from "react-hot-toast";
-=======
 import Login from "../components/ChatLogin"
->>>>>>> 9b700a1e2bb010d64e8f5b5f783bbbe2b61eba7c
 function Chat() {
   const [prompt, setPrompt] = useState("");
   const [chatMessages, setChatMessages] = useState([]);
