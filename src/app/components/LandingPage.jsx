@@ -7,8 +7,8 @@ function LandingPage() {
   const { chatid } = getItem();
 
   return (
-    <div className="w-screen h-screen flex-col flex justify-center items-center overflow-x-hidden mb-8">
-      <div className="relative w-full h-[300px] flex  justify-center items-center flex-col text-[#0C5CE5] pt-4">
+    <div className="w-screen h-screen flex-col flex justify-center items-center overflow-x-hidden pt-4">
+      <div className="relative w-full h-[300px] flex  justify-center items-center flex-col text-[#0C5CE5] pt-2">
         <h1 className="text-3xl text-center">
           Welcome To InnerGlow
           <br />
