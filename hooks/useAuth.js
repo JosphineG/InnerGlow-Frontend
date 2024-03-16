@@ -1,10 +1,9 @@
-import { useState } from "react";
-
 const useAuthToken = () => {
   const getItem = () => {
     const token = localStorage.getItem("innerAuth");
+    const chatid = localStorage.getItem("chatId");
 
-    return { token };
+    return { token, chatid };
   };
 
   const clearAuthToken = () => {

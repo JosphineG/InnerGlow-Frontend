@@ -2,10 +2,10 @@
 import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-// import useAuthToken from "../../../hooks/useAuth";
+import useAuthToken from "../../../hooks/useAuth";
 function Login({ path }) {
-  // const { getItem } = useAuthToken();
-  // const { token } = getItem();
+  const { getItem } = useAuthToken();
+  const { chatid } = getItem();
 
   // useEffect(() => {
   //   if (token) {
@@ -40,7 +40,7 @@ function Login({ path }) {
 
       const data = await response.json();
       localStorage.setItem("innerAuth", data.access_token);
-      window.location.href = "/chat";
+      window.location.href = `/chat/${chatid}`;
     } catch (error) {
       toast.error(error, { id: notification });
       console.error(error);

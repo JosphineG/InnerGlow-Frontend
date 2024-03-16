@@ -1,15 +1,14 @@
 import React from "react";
+import Markdown from "react-markdown";
 // import myPic from "../src/assets/me (2).jpg";
-function UserChatitem() {
+function UserChatitem({text}) {
   return (
     <div className="chat-message">
       <div className="flex items-end justify-end">
         <div className="flex flex-col space-y-2 mx-2 order-1 items-end">
           <div>
             <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white md:max-w-[500px] w-[100%]">
-              Hi, In the past few days i have been feeling streessed and
-              overwhelmed because i lost a close friend. Can you provide tips
-              for managing stressand anxiety during challenging times?
+              <Markdown>{text}</Markdown>
             </span>
           </div>
         </div>
