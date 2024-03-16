@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Donut from "./Donut";
 import useAuthToken from "../../../hooks/useAuth";
-function Login({ path }) {
+function Login() {
   const { getItem } = useAuthToken();
   const { chatid } = getItem();
 
