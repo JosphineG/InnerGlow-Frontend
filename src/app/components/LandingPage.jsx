@@ -15,7 +15,7 @@ function LandingPage() {
           Your Compassionate Companion
         </h1>
         <p className="mb-8 mt-2">Be gentle and kind to your Mind</p>
-        <a href={`/chat`}>
+        <a href={`/chat/${chatid}`}>
           <button className="px-20 py-4 bg-blue-500 rounded-full text-white font-semibold hover:bg-blue-400 hover:px-24">
             Get Started
           </button>
