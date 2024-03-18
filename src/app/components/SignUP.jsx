@@ -90,8 +90,8 @@ const SignUp = () => {
       if (response.status === 200) {
         console.log("chat created successfully");
       }
-      const data = await response.json();
-      localStorage.setItem("chatId", data);
+      const { chatId } = await response.json();
+      localStorage.setItem("chatId", chatId);
     } catch (error) {
       console.error(error);
     }
