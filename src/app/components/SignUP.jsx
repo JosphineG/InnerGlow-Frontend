@@ -64,6 +64,7 @@ const SignUp = () => {
           id: notification,
         });
         const { userId } = await response.json();
+        console.log("usertid",userId)
         createChat(userId);
         window.location.href = "/chatlogin";
       }
@@ -90,8 +91,9 @@ const SignUp = () => {
       if (response.status === 200) {
         console.log("chat created successfully");
       }
-      const data = await response.json();
-      localStorage.setItem("chatId", data);
+      const { chatId }= await response.json();
+      // console.log("data", chatId)
+      localStorage.setItem("chatId", chatId);
     } catch (error) {
       console.error(error);
     }

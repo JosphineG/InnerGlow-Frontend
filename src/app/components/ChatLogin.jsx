@@ -9,10 +9,10 @@ function Login() {
   const { chatid, token } = getItem();
 
   useEffect(() => {
-    if (!token) {
-      window.location.href = "/chatlogin";
+    if (token) {
+      window.location.href = `/chat/${chatid}`;
     }
-  }, [token]);
+  }, []);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   console.log(email);
