@@ -94,6 +94,9 @@ function Chat() {
     }
   };
 
+
+  console.log(chatid)
+
   return (
     <>
       <Toaster />

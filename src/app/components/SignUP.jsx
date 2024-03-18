@@ -64,6 +64,7 @@ const SignUp = () => {
           id: notification,
         });
         const { userId } = await response.json();
+        console.log("usertid",userId)
         createChat(userId);
         window.location.href = "/chatlogin";
       }
