@@ -9,8 +9,8 @@ function ResetPassword() {
   return (
     <div className="flex  w-screen items-center justify-center md:flex-row p-12    h-screen flex-col">
       {response ? (
-            //   <SuccessPasswordReset email={email} />
-              <ErrorPasswordReset />
+              <SuccessPasswordReset email={email} />
+              // <ErrorPasswordReset />
       ) : (
         <form className="bg-white p-2 md:p-4 rounded-lg md:rounded-xl md:min-w-[350px]  justify-center flex flex-col px-md">
           <p className="text-blue-500 font-bold text-xl tracking-widest">
