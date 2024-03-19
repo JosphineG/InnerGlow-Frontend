@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
+import Donut from "./Donut";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
@@ -93,7 +94,11 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="flex w-screen item-center justify-center md:flex-row p-12 h-screen flex-col">
+    <div className="relative flex w-screen item-center justify-center md:flex-row p-12 h-screen flex-col">
+      <div className="absolute  top-0 left-[-200px] z-[-1]">
+        <Donut />
+      </div>
+     
       <div className="flex items-center justify-center text-center w-full h-full gap-8">
         <div className="hidden md:flex h-[400px] rounded-2xl">
           <Image
@@ -200,6 +205,9 @@ const SignUp = () => {
             </div>
           </form>
         </div>
+      </div>
+   <div className="absolute  bottom-0 right-[-200px] z-[-1]">
+        <Donut />
       </div>
     </div>
   );

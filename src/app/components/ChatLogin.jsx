@@ -52,13 +52,13 @@ function Login() {
       <Toaster />
       <div className="flex  w-screen item-center justify-center md:flex-row p-12   h-screen flex-col">
         <div className="flex items-center justify-center text-center w-full h-full gap-8">
-          <div className="absolute top-[-200px]">
+          <div className="absolute  top-0 left-[-200px] z-[-1]">
             <Donut/>
           </div>
           <div className="hidden md:flex h-[400px] rounded-2xl">
             <Image
-              src="/anxietyrm.png"
-              alt="anxiety image"
+              src="/InnerG.svg"
+              alt="InnerG image"
               width={400}
               height={400}
               className="object-cover  object-top rounded-2xl"
@@ -143,6 +143,9 @@ function Login() {
                 </button>
               </div>
             </form>
+          </div>
+          <div className="absolute  bottom-0 right-[-200px] z-[-1]">
+            <Donut />
           </div>
         </div>
       </div>
