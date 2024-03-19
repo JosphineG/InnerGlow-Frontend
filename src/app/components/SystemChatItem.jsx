@@ -6,7 +6,7 @@ function SystemChatItem({ text }) {
       <div className="flex items-end">
         <div className="flex flex-col space-y-2 	mx-2 order-2 items-start">
           <div>
-            <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600 md:max-w-[500px] w-full">
+            <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600 md:max-w-[700px] w-full">
               <Markdown>{text}</Markdown>
             </span>
           </div>
