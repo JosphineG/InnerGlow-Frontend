@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
+import Donut from "./Donut";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");

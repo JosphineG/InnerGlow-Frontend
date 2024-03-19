@@ -62,8 +62,8 @@ function Login() {
           </div>
           <div className="hidden md:flex h-[400px] rounded-2xl">
             <Image
-              src="/anxietyrm.png"
-              alt="anxiety image"
+              src="/InnerG.svg"
+              alt="InnerG image"
               width={400}
               height={400}
               className="object-cover  object-top rounded-2xl"
@@ -158,6 +158,9 @@ function Login() {
                 </button>
               </div>
             </form>
+          </div>
+          <div className="absolute  bottom-0 right-[-200px] z-[-1]">
+            <Donut />
           </div>
         </div>
       </div>
