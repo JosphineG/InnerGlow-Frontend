@@ -18,7 +18,7 @@ const HomeNavbar = () => {
           <Link href="#about"className="text-white hover:text-gray-200">
             About
           </Link>
-          <Link href="/community"className="text-white hover:text-gray-200">
+          <Link href="/community/articles"className="text-white hover:text-gray-200">
             Community
           </Link>
           <Link href="/contact"className="text-white hover:text-gray-200">
