@@ -4,16 +4,17 @@ import PasswordReset from "../../components/PasswordReset";
 import { useParams } from "next/navigation";
 
 export default function ExampleClientComponent() {
-  const params = useParams();
-  console.log(params.token)
+  const {token}= useParams();
+  
+  console.log(token)
   const [error,setError] = useState(false)
   useEffect(()=>{
     HandleFetchUser()
   },[])
   const HandleFetchUser = async (params) => {
     try {
-      const data = await fetch(`https://inner-glow-backend.vercel.app/api/v1/user/reset-password?token=${params.token}`);
-      const response = await data.json();
+      const data = await fetch(`https://inner-glow-backend.vercel.app/api/v1/auth/reset-password?token=${token}`);
+      const response = await data?.json();
       console.log('from dara',response);
       return response; // Return the response data if needed
     } catch (error) {
@@ -26,7 +27,7 @@ export default function ExampleClientComponent() {
 
   return (
     <div className="">
-      <PasswordReset token={params.token} />
+      <PasswordReset token={token} />
     </div>
   );
 }

@@ -3,8 +3,8 @@
 const useAuthToken = () => {
   const getItem = () => {
     if (typeof window !== "undefined") {
-      const token = localStorage.getItem("innerAuth");
-      const chatid = localStorage.getItem("chatId");
+      const token = localStorage?.getItem("innerAuth");
+      const chatid = localStorage?.getItem("chatId");
       return { token, chatid };
     }
     // return { token: null }; // Return null if localStorage is not available
