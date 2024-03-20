@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import useAuthToken from "../../../hooks/useAuth";
 import { FaPlus } from "react-icons/fa";
 import SingleArticle from "./SingleArticle";
+import Model from "./Model";
 function Articles() {
   const [loading, setLoading] = useState(false);
   const { clearAuthToken, getItem } = useAuthToken();
+  const [isModelOpen, setIsModelOpen] = useState(false);
   const { chatid, token } = getItem();
   const [articles, setArticles] = useState();
   useEffect(() => {
@@ -37,7 +39,7 @@ function Articles() {
     window.location.href = "/chatlogin";
   };
   return (
-    <div>
+    <div className="relative">
       <header className="w-screen flex justify-between items-center gap-2 px-4 md:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-[#e9f1ff]">
         <h1>
           <a href="/">InnerGlow</a>
@@ -56,7 +58,12 @@ function Articles() {
       <div className="md:px-[65px] pt-[100px]  px-[15px] w-screen">
         <div className="flex items-center justify-between w-full">
           <h2 className="text-3xl font-semibold text-blue-500">Articles</h2>
-          <button className="bg-blue-500 px-4 py-3 text-white font-bold rounded-xl shadow-lg shadow-black flex items-center gap-2 hover:px-5">
+          <button
+            className="bg-blue-500 px-4 py-3 text-white font-bold rounded-xl shadow-lg shadow-black flex items-center gap-2 hover:px-5"
+            onClick={() => {
+              setIsModelOpen(true);
+            }}
+          >
             <FaPlus />
             <span>Create Article</span>
           </button>
@@ -67,6 +74,11 @@ function Articles() {
           ))}
         </div>
       </div>
+      {isModelOpen && (
+        <div className="absolute top-0">
+          <Model setIsModelOpen={setIsModelOpen} />
+        </div>
+      )}
     </div>
   );
 }

@@ -7,21 +7,21 @@ import useAuthToken from "../../../hooks/useAuth";
 function PasswordReset({ token }) {
   const [repeatPassword, setRepeatPassword] = useState();
   const [password, setPassword] = useState();
-    console.log(repeatPassword);
-    
+  console.log(repeatPassword);
+
   const handlePasswordReset = async (e) => {
     e.preventDefault();
     const notification = toast.loading("Authenticating...");
     if (!repeatPassword || !password) {
       toast.error("Inputs below are required", { id: notification });
       return;
-      }
-      if (repeatPassword !== password) {
-        toast.error("Passwords do not match", { id: notification });
-        return;
-      }
+    }
+    if (repeatPassword !== password) {
+      toast.error("Passwords do not match", { id: notification });
+      return;
+    }
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/v1/resetpassword/${token}`, {
+      const response = await fetch(`https://inner-glow-backend.vercel.app/api/v1/reset-password/${token}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,11 +32,12 @@ function PasswordReset({ token }) {
       });
       if (response.status == 200) {
         toast.success("password reset successfully", { id: notification });
+        console.log(await response.json())
         console.log("logged in successfully");
       }
       if (response.status !== 200) {
         toast.error("Failed to reset password!!", { id: notification });
-        console.log("Invalid credentials!!");
+        console.log("Invalid credentials!!", response);
         return;
       }
 
@@ -110,7 +111,7 @@ function PasswordReset({ token }) {
                     placeholder="Repeat new Password"
                   />
                 </div>
-                {/* input code end */}
+                
               </div>
               <div>
                 <button

@@ -3,9 +3,10 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import useAuthToken from "../../../hooks/useAuth";
-const { getItem } = useAuthToken();
-const { chatid } = getItem();
+
 const HomeNavbar = () => {
+  const { getItem } = useAuthToken();
+  const { chatid } = getItem();
   return (
     <nav className="bg-blue-500  p-4 fixed w-screen z-[999] h-[80px] flex items-center justify-between ">
       <div className="container mx-auto flex items-center justify-between w-full">
