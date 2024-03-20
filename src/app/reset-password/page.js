@@ -16,7 +16,7 @@ function ResetPassword() {
     }
 
     try {
-      const response = await fetch(`https://inner-glow-backend.vercel.app/api/v1/auth/forget-password`, {
+      const response = await fetch(`${process.env.EndPoint}/api/v1/auth/forget-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
