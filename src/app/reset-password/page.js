@@ -6,11 +6,50 @@ import ErrorPasswordReset from "../components/ErrorPasswordReset";
 function ResetPassword() {
   const [email, setEmail] = useState();
   const [response, setResponse] = useState(false);
+  const handleSubmitEmail=()=>{
+    e.preventDefault();
+    const notification = toast.loading("Authenticating...");
+    if (!repeatPassword || !password) {
+      toast.error("Inputs below are required", { id: notification });
+      return;
+    }
+    if (repeatPassword !== password) {
+      toast.error("Passwords do not match", { id: notification });
+      return;
+    }
+    try {
+      const response = await fetch(`https://inner-glow-backend.vercel.app/api/v1/reset-password/${token}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          password: password,
+        }),
+      });
+      if (response.status == 200) {
+        toast.success("password reset successfully", { id: notification });
+        console.log(await response.json())
+        console.log("logged in successfully");
+      }
+      if (response.status !== 200) {
+        toast.error("Failed to reset password!!", { id: notification });
+        console.log("Invalid credentials!!", response);
+        return;
+      }
+
+      const data = await response.json();
+      window.location.href = `/chat/${chatid}`;
+    } catch (error) {
+      toast.error(error, { id: notification });
+      console.error(error);
+    }
+  }
   return (
     <div className="flex  w-screen items-center justify-center md:flex-row p-12    h-screen flex-col">
       {response ? (
-              <SuccessPasswordReset email={email} />
-              // <ErrorPasswordReset />
+              // <SuccessPasswordReset email={email} />
+              <ErrorPasswordReset />
       ) : (
         <form className="bg-white p-2 md:p-4 rounded-lg md:rounded-xl md:min-w-[350px]  justify-center flex flex-col px-md">
           <p className="text-blue-500 font-bold text-xl tracking-widest">
