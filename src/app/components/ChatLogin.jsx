@@ -6,13 +6,13 @@ import Donut from "./Donut";
 import useAuthToken from "../../../hooks/useAuth";
 function Login() {
   const { getItem } = useAuthToken();
-  const { chatid, token } = getItem();
+  const { token, chatid } = getItem() || { token: null, chatid: null };
 
   useEffect(() => {
-    if (token) {
+    if (token && chatid) { // Check if both token and chatid are defined
       window.location.href = `/chat/${chatid}`;
     }
-  }, []);
+  }, [token, chatid]);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   console.log(email);
