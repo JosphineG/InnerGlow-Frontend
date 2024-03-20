@@ -21,7 +21,7 @@ function PasswordReset({ token }) {
       return;
     }
     try {
-      const response = await fetch(`https://inner-glow-backend.vercel.app/api/v1/reset-password/${token}`, {
+      const response = await fetch(`${process.env.EndPoint}/api/v1/reset-password/${token}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

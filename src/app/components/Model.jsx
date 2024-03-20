@@ -34,7 +34,7 @@ function Model({ setIsModelOpen }) {
     });
 
     try {
-      const response = await fetch("http://localhost:5000/api/v1/articles", {
+      const response = await fetch(`${process.env.EndPoint}/api/v1/articles`, {
         method: "POST",
         headers: {
           Accept: "application/json",

@@ -13,7 +13,7 @@ export default function ExampleClientComponent() {
   },[])
   const HandleFetchUser = async (params) => {
     try {
-      const data = await fetch(`https://inner-glow-backend.vercel.app/api/v1/auth/reset-password?token=${token}`);
+      const data = await fetch(`${process.env.EndPoint}/api/v1/auth/reset-password?token=${token}`);
       const response = await data?.json();
       console.log('from dara',response);
       return response; // Return the response data if needed

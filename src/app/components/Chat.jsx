@@ -22,7 +22,7 @@ function Chat() {
       setDisabled(true);
       try {
         const response = await fetch(
-          `http://127.0.0.1:5000/api/v1/chat/${chatid}/messages`
+          `${process.env.EndPoint}/api/v1/chat/${chatid}/messages`
         );
         if (response.ok) {
           setLoading(false);
