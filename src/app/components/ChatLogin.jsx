@@ -140,7 +140,7 @@ function Login() {
                 </div>
                 <div className="text-sm">
                   <a
-                    href="/passwordreset"
+                    href="/reset-password"
                     className="font-medium text-indigo-600 hover:text-indigo-300 "
                   >
                     Forgot Password?
