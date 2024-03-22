@@ -38,7 +38,9 @@ function Chat() {
 
     try {
       const response = await fetch(
+
         `http://localhost:5000/api/v1/chat/${chatid}/geminichat`,
+
         {
           method: "POST",
           headers: {
