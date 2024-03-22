@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
 import { FaInstagram } from "react-icons/fa";
-=======
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
 function Footer() {
   return (
     <div className="w-screen sticky bg-[#6495ED47]  p-6 gap-4 grid grid-cols-1 md:grid-cols-3">
@@ -18,19 +14,9 @@ function Footer() {
           <span>
             <FaInstagram/>
           </span>
-<<<<<<< HEAD
           <span>X</span>
           <span>IG</span>
           <span>FB</span>
-=======
-          <span>
-            <FaTwitter/>
-          </span>
-          <span>IG</span>
-          <span>
-            <FaFacebook/>
-          </span>
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
         </div>
       </div>
       <div className="w-full">

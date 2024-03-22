@@ -30,11 +30,7 @@ function LandingPage() {
               {`In today\'s interconnected world you can be surrounded by people,
               but still feel lonely and trusting others with our vulnerabilities
               is still hard.`}
-<<<<<<< HEAD
               n
-=======
-              
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
             </p>
             <p className="text-left mt-2">
               <span className="text-blue-600 font-bold">InnerGlow</span> is an

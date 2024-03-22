@@ -21,15 +21,18 @@ function PasswordReset({ token }) {
       return;
     }
     try {
-      const response = await fetch(`${process.env.EndPoint}/api/v1/reset-password/${token}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          password: password,
-        }),
-      });
+      const response = await fetch(
+        `http://localhost:5000/api/v1/reset-password/${token}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            password: password,
+          }),
+        }
+      );
       if (response.status == 200) {
         toast.success("password reset successfully", { id: notification });
         console.log(await response.json())

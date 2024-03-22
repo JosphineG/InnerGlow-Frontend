@@ -18,7 +18,7 @@ function CommunityPage() {
 
       try {
         const response = await fetch(
-          `${process.env.EndPoint}/api/v1/articles/${id}`
+          `http://localhost:5000/api/v1/articles/${id}`
         );
         if (response.ok) {
           setLoading(false);

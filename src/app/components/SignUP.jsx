@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // "use client";
 // import React, { useState } from "react";
 // import Image from "next/image";
@@ -146,16 +145,10 @@
 // };
 
 // export default SignUp;
-=======
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
-<<<<<<< HEAD
-=======
-import Donut from "./Donut";
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
@@ -189,23 +182,12 @@ const SignUp = () => {
       setPasswordError(
         "Password must contain at least one uppercase letter, one lowercase letter, one digit, and be at least 8 characters long."
       );
-<<<<<<< HEAD
-=======
-      toast.error(
-        "Password must contain at least one uppercase letter, one lowercase letter, one digit, and be at least 8 characters long.",
-        { id: notification }
-      );
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
       return;
     }
 
     try {
       const response = await fetch(
-<<<<<<< HEAD
-        "http://127.0.0.1:5000/api/v1/auth/register",
-=======
-        `${process.env.EndPoint}/api/v1/auth/register`,
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
+        `http://localhost:5000/api/v1/auth/register`,
         {
           method: "POST",
           headers: {
@@ -225,10 +207,6 @@ const SignUp = () => {
           id: notification,
         });
         const { userId } = await response.json();
-<<<<<<< HEAD
-=======
-        console.log("usertid", userId)
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
         createChat(userId);
         window.location.href = "/chatlogin";
       }
@@ -242,11 +220,7 @@ const SignUp = () => {
 
   const createChat = async (userId) => {
     try {
-<<<<<<< HEAD
-      const response = await fetch("http://127.0.0.1:5000/api/v1/chat/create", {
-=======
-      const response = await fetch(`${process.env.EndPoint}/api/v1/chat/create`, {
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
+      const response = await fetch(`http://localhost:5000/api/v1/chat/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -260,10 +234,7 @@ const SignUp = () => {
         console.log("chat created successfully");
       }
       const { chatId } = await response.json();
-<<<<<<< HEAD
       console.log("data", chatId);
-=======
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
       localStorage.setItem("chatId", chatId);
     } catch (error) {
       console.error(error);
@@ -348,14 +319,6 @@ const SignUp = () => {
                     className="appearance-none rounded-none relative block w-full py-2 px-2 border border-gray-300 placeholder-gray-500 text-gray-900 mb-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 small:text-sm"
                     placeholder="Password"
                   />
-<<<<<<< HEAD
-=======
-                  {passwordError && (
-                    <span className="text-red-500 text-md font-semibold">
-                      {passwordError}
-                    </span>
-                  )}
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
                 </div>
                 <div className="flex flex-col mb-1">
                   <label
@@ -374,13 +337,7 @@ const SignUp = () => {
                   />
                 </div>
                 {passwordError && (
-<<<<<<< HEAD
                   <span className="text-red-500">{passwordError}</span>
-=======
-                  <span className="text-red-500 text-md font-semibold">
-                    {passwordError}
-                  </span>
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
                 )}
               </div>
               <div>

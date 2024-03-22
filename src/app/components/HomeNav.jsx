@@ -1,20 +1,8 @@
-<<<<<<< HEAD
 import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 
 const HomeNavbar = () => {
-=======
-"use client";
-import React from 'react'
-import Link from 'next/link';
-import Image from 'next/image';
-import useAuthToken from "../../../hooks/useAuth";
-
-const HomeNavbar = () => {
-  const { getItem } = useAuthToken();
-  const { chatid } = getItem();
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
   return (
     <nav className="bg-blue-500  p-4 fixed w-screen z-[999] h-[80px] flex items-center justify-between ">
       <div className="container mx-auto flex items-center justify-between w-full">
@@ -26,11 +14,7 @@ const HomeNavbar = () => {
           <Link href="#about"className="text-white hover:text-gray-200">
             About
           </Link>
-<<<<<<< HEAD
           <Link href="/community"className="text-white hover:text-gray-200">
-=======
-          <Link href="/community/articles"className="text-white hover:text-gray-200">
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
             Community
           </Link>
           <Link href="/contact"className="text-white hover:text-gray-200">
@@ -38,11 +22,7 @@ const HomeNavbar = () => {
           </Link>
         </div>
         <div className='ml-auto hidden sm:block'>
-<<<<<<< HEAD
             <Link href="/get-started"className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-4 rounded-l-full rounded-r-full font-semibold">Get Started
-=======
-          <Link href={`/chat/${chatid}`} className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-4 rounded-l-full rounded-r-full font-semibold">Get Started
->>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
             </Link>
           </div>
         

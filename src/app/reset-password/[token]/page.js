@@ -13,7 +13,9 @@ export default function ExampleClientComponent() {
   },[])
   const HandleFetchUser = async (params) => {
     try {
-      const data = await fetch(`${process.env.EndPoint}/api/v1/auth/reset-password?token=${token}`);
+      const data = await fetch(
+        `http://localhost:5000/api/v1/auth/reset-password?token=${token}`
+      );
       const response = await data?.json();
       console.log('from dara',response);
       return response; // Return the response data if needed
