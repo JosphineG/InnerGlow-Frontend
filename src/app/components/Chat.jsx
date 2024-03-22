@@ -22,7 +22,7 @@ function Chat() {
       setDisabled(true);
       try {
         const response = await fetch(
-          `${process.env.EndPoint}/api/v1/chat/${chatid}/messages`
+          `http://localhost:5000/api/v1/chat/${chatid}/messages`
         );
         if (response.ok) {
           setLoading(false);
@@ -62,7 +62,7 @@ function Chat() {
     const notify = toast.loading("Thinking...");
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/v1/chat/${chatid}/geminichat`,
+        `http://localhost:5000/api/v1/chat/${chatid}/geminichat`,
         {
           method: "POST",
           headers: {
@@ -90,12 +90,10 @@ function Chat() {
       }
     } catch (error) {
       console.error(error);
-      toast.error(error,{id:notify})
+      toast.error(error, { id: notify });
     }
   };
 
-
-  console.log(chatid)
 
   return (
     <>

@@ -45,7 +45,7 @@ const SignUp = () => {
 
     try {
       const response = await fetch(
-        `${process.env.EndPoint}/api/v1/auth/register`,
+        `http://localhost:5000/api/v1/auth/register`,
         {
           method: "POST",
           headers: {
@@ -79,7 +79,7 @@ const SignUp = () => {
 
   const createChat = async (userId) => {
     try {
-      const response = await fetch(`${process.env.EndPoint}/api/v1/chat/create`, {
+      const response = await fetch(`http://localhost:5000/api/v1/chat/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

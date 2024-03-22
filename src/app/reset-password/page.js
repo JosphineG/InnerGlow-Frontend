@@ -16,15 +16,18 @@ function ResetPassword() {
     }
 
     try {
-      const response = await fetch(`${process.env.EndPoint}/api/v1/auth/forget-password`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-        }),
-      });
+      const response = await fetch(
+        `http://localhost:5000/api/v1/auth/forget-password`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+          }),
+        }
+      );
       if (response.status == 200) {
         toast.success("change password link sent to the user email", { id: notification });
         console.log(await response.json())

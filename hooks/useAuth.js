@@ -1,3 +1,4 @@
+
 const useAuthToken = () => {
   const getItem = () => {
     if (typeof window !== "undefined") {
@@ -5,7 +6,7 @@ const useAuthToken = () => {
       const chatid = localStorage?.getItem("chatId");
       return { token, chatid }; // Return an object with token and chatid
     } else {
-      return { token: null, chatid: null };
+      // return { token: null, chatid: null };
     }
     // Default values if localStorage is not available
   };

@@ -5,11 +5,13 @@ import React, { useEffect, useState } from "react";
 import Donut from "./Donut";
 import useAuthToken from "../../../hooks/useAuth";
 function Login() {
+  const link = process.env.NEXTAUTH_URL;
   const { getItem } = useAuthToken();
   const { token, chatid } = getItem() || { token: null, chatid: null };
 
   useEffect(() => {
-    if (token && chatid) { // Check if both token and chatid are defined
+    if (token && chatid) {
+      // Check if both token and chatid are defined
       window.location.href = `/chat/${chatid}`;
     }
   }, [token, chatid]);
@@ -24,7 +26,7 @@ function Login() {
       return;
     }
     try {
-      const response = await fetch(`${process.env.EndPoint}/api/v1/auth/login`, {
+      const response = await fetch(`http://localhost:5000/api/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

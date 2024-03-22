@@ -20,7 +20,7 @@ function Login() {
       return;
     }
     try {
-      const response = await fetch(`${process.env.EndPoint}/api/v1/auth/login`, {
+      const response = await fetch(`http://localhost:5000/api/v1/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
