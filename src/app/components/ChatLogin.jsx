@@ -7,14 +7,13 @@ import useAuthToken from "../../../hooks/useAuth";
 function Login() {
   const link = process.env.NEXTAUTH_URL;
   const { getItem } = useAuthToken();
-  const { token, chatid } = getItem() || { token: null, chatid: null };
+  const { chatid } = getItem();
 
-  useEffect(() => {
-    if (token && chatid) {
-      // Check if both token and chatid are defined
-      window.location.href = `/chat/${chatid}`;
-    }
-  }, [token, chatid]);
+  // useEffect(() => {
+  //   if (token) {
+  //     loc
+  //   }
+  // })
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   console.log(email);
@@ -40,20 +39,16 @@ function Login() {
         toast.success("logged in successfully", { id: notification });
         console.log("logged in successfully");
       }
-      if (response.status !== 200) {
-        toast.error("Invalid login credentials!!", { id: notification });
-        console.log("Invalid credentials!!");
-        return;
-      }
 
       const data = await response.json();
       localStorage.setItem("innerAuth", data.access_token);
-      window.location.href = `/ chat / ${chatid}`;
+      window.location.href = `/chat/${chatid}`;
     } catch (error) {
       toast.error(error, { id: notification });
       console.error(error);
     }
   };
+  console.log(chatid);
   return (
     <>
       <Toaster />
@@ -64,8 +59,8 @@ function Login() {
           </div>
           <div className="hidden md:flex h-[400px] rounded-2xl">
             <Image
-              src="/InnerG.svg"
-              alt="InnerG image"
+              src="/anxietyrm.png"
+              alt="anxiety image"
               width={400}
               height={400}
               className="object-cover  object-top rounded-2xl"
@@ -142,7 +137,7 @@ function Login() {
                 </div>
                 <div className="text-sm">
                   <a
-                    href="/reset-password"
+                    href="#"
                     className="font-medium text-indigo-600 hover:text-indigo-300 "
                   >
                     Forgot Password?
@@ -160,9 +155,6 @@ function Login() {
                 </button>
               </div>
             </form>
-          </div>
-          <div className="absolute  bottom-0 right-[-200px] z-[-1]">
-            <Donut />
           </div>
         </div>
       </div>

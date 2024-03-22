@@ -8,7 +8,7 @@ const useAuthToken = () => {
     } else {
       // return { token: null, chatid: null };
     }
-    // Default values if localStorage is not available
+    // return { token: null }; // Return null if localStorage is not available
   };
 
   const clearAuthToken = () => {

@@ -35,7 +35,7 @@ const Community = () => {
       </div>
       </div>
       <button className="bg-blue-500 mt-8 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l-full rounded-r-full mx-auto block">
-        Explore 
+        Explore Communities
       </button>
     </div>
     
