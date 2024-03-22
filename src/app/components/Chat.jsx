@@ -94,7 +94,7 @@ function Chat() {
 >>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/v1/chat/${chatid}/geminichat`,
+        `${process.env.EndPoint}/api/v1/chat/${chatid}/geminichat`,
         {
           method: "POST",
           headers: {
