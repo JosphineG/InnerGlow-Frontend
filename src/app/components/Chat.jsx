@@ -4,12 +4,8 @@ import ChatNav from "./ChatNav";
 import SystemChatItem from "./SystemChatItem";
 import UserChatitem from "./UserChatitem";
 import useAuthToken from "../../../hooks/useAuth";
-<<<<<<< HEAD
-import Login from "./ChatLogin";
 import toast, { Toaster } from "react-hot-toast";
-=======
-import Login from "../components/ChatLogin"
->>>>>>> 9b700a1e2bb010d64e8f5b5f783bbbe2b61eba7c
+import Login from "../components/ChatLogin";
 function Chat() {
   const [prompt, setPrompt] = useState("");
   const [chatMessages, setChatMessages] = useState([]);
@@ -20,7 +16,7 @@ function Chat() {
     const fetchChatMessages = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:5000/api/v1/chat/${chatid}/messages` 
+          `http://127.0.0.1:5000/api/v1/chat/${chatid}/messages`
         );
         if (response.ok) {
           const data = await response.json();
@@ -39,7 +35,7 @@ function Chat() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const response = await fetch(
         `http://127.0.0.1:5000/api/v1/chat/${chatid}/geminichat`,
@@ -68,6 +64,8 @@ function Chat() {
       console.error(error);
     }
   };
+
+  console.log(chatid);
 
   return (
     <>

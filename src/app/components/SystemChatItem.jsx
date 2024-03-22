@@ -1,5 +1,6 @@
 import React from "react";
 import Markdown from "react-markdown";
+import Image from "next/image";
 function SystemChatItem({ text }) {
   return (
     <div className="chat-message" style={{ whiteSpace: "pre-line" }}>
@@ -11,11 +12,13 @@ function SystemChatItem({ text }) {
             </span>
           </div>
         </div>
-        {/* <img
-          src={avatar}
-          alt="My profile"
-          className="w-12 h-12 rounded-full order-1"
-        /> */}
+        <Image
+          src="/image-removebg-preview.png"
+          alt="anxiety image"
+          width={60}
+          height={60}
+          className="object-cover  object-top rounded-2xl"
+        />
       </div>
     </div>
   );

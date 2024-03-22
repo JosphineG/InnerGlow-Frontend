@@ -3,8 +3,8 @@ import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Donut from "./Donut";
-// import useAuthToken from "../../../hooks/useAuth";
-function Login({ path }) {
+import useAuthToken from "../../../hooks/useAuth";
+function Login() {
   const { getItem } = useAuthToken();
   const { chatid } = getItem();
 
@@ -47,13 +47,14 @@ function Login({ path }) {
       console.error(error);
     }
   };
+  console.log(chatid);
   return (
     <>
       <Toaster />
       <div className="flex  w-screen item-center justify-center md:flex-row p-12   h-screen flex-col">
         <div className="flex items-center justify-center text-center w-full h-full gap-8">
           <div className="absolute top-[-200px]">
-            <Donut/>
+            <Donut />
           </div>
           <div className="hidden md:flex h-[400px] rounded-2xl">
             <Image
@@ -86,7 +87,12 @@ function Login({ path }) {
                 {/* input code start */}
 
                 <div className="flex flex-col mb-1">
-                  <label htmlFor="email" className="text-sm text-left text-gray-900 font-bold mb-2">Email</label>
+                  <label
+                    htmlFor="email"
+                    className="text-sm text-left text-gray-900 font-bold mb-2"
+                  >
+                    Email
+                  </label>
                   <input
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
@@ -99,8 +105,13 @@ function Login({ path }) {
                 </div>
 
                 <div className="flex flex-col mb-1">
-                  <label htmlFor="password" className="text-sm text-left text-gray-900 font-bold mb-2">Password</label>
-                <input
+                  <label
+                    htmlFor="password"
+                    className="text-sm text-left text-gray-900 font-bold mb-2"
+                  >
+                    Password
+                  </label>
+                  <input
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
                     autoComplete="none"
