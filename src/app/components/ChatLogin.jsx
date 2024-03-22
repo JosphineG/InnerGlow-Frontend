@@ -6,6 +6,15 @@ import Donut from "./Donut";
 import useAuthToken from "../../../hooks/useAuth";
 function Login() {
   const { getItem } = useAuthToken();
+<<<<<<< HEAD
+  const { chatid } = getItem();
+
+  // useEffect(() => {
+  //   if (token) {
+  //     loc
+  //   }
+  // })
+=======
   const { token, chatid } = getItem() || { token: null, chatid: null };
 
   useEffect(() => {
@@ -13,6 +22,7 @@ function Login() {
       window.location.href = `/chat/${chatid}`;
     }
   }, [token, chatid]);
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   console.log(email);
@@ -24,7 +34,11 @@ function Login() {
       return;
     }
     try {
+<<<<<<< HEAD
+      const response = await fetch("http://127.0.0.1:5000/api/v1/auth/login", {
+=======
       const response = await fetch(`${process.env.EndPoint}/api/v1/auth/login`, {
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,6 +52,12 @@ function Login() {
         toast.success("logged in successfully", { id: notification });
         console.log("logged in successfully");
       }
+<<<<<<< HEAD
+
+      const data = await response.json();
+      localStorage.setItem("innerAuth", data.access_token);
+      window.location.href = `/chat/${chatid}`;
+=======
       if (response.status !== 200) {
         toast.error("Invalid login credentials!!", { id: notification });
         console.log("Invalid credentials!!");
@@ -47,11 +67,16 @@ function Login() {
       const data = await response.json();
       localStorage.setItem("innerAuth", data.access_token);
       window.location.href = `/ chat / ${chatid}`;
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
     } catch (error) {
       toast.error(error, { id: notification });
       console.error(error);
     }
   };
+<<<<<<< HEAD
+  console.log(chatid);
+=======
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
   return (
     <>
       <Toaster />
@@ -62,8 +87,13 @@ function Login() {
           </div>
           <div className="hidden md:flex h-[400px] rounded-2xl">
             <Image
+<<<<<<< HEAD
+              src="/anxietyrm.png"
+              alt="anxiety image"
+=======
               src="/InnerG.svg"
               alt="InnerG image"
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
               width={400}
               height={400}
               className="object-cover  object-top rounded-2xl"
@@ -140,7 +170,11 @@ function Login() {
                 </div>
                 <div className="text-sm">
                   <a
+<<<<<<< HEAD
+                    href="#"
+=======
                     href="/reset-password"
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
                     className="font-medium text-indigo-600 hover:text-indigo-300 "
                   >
                     Forgot Password?
@@ -159,9 +193,12 @@ function Login() {
               </div>
             </form>
           </div>
+<<<<<<< HEAD
+=======
           <div className="absolute  bottom-0 right-[-200px] z-[-1]">
             <Donut />
           </div>
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
         </div>
       </div>
     </>

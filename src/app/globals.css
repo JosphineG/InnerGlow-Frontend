@@ -53,6 +53,8 @@ body {
   border-radius: 0.25rem;
 }
 
+<<<<<<< HEAD
+=======
 #postForm {
     max-width: 400px;
     margin: 0 auto;
@@ -97,6 +99,7 @@ button:hover {
     margin-top: 10px;
 }
 
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
 @layer utilities {
   .text-balance {
     text-wrap: balance;
