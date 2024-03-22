@@ -68,7 +68,6 @@ function Chat() {
     }
   };
 
-
   return (
     <>
       <Toaster />
