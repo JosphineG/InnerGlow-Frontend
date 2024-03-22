@@ -1,9 +1,14 @@
 "use client";
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState, useEffect, useRef } from "react";
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
 import ChatNav from "./ChatNav";
 import SystemChatItem from "./SystemChatItem";
 import UserChatitem from "./UserChatitem";
 import useAuthToken from "../../../hooks/useAuth";
+<<<<<<< HEAD
 import toast, { Toaster } from "react-hot-toast";
 import Login from "../components/ChatLogin";
 function Chat() {
@@ -19,6 +24,31 @@ function Chat() {
           `http://127.0.0.1:5000/api/v1/chat/${chatid}/messages`
         );
         if (response.ok) {
+=======
+import Login from "../components/ChatLogin";
+import toast, { Toaster } from "react-hot-toast";
+function Chat() {
+  const [prompt, setPrompt] = useState("");
+  const [chatMessages, setChatMessages] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const { getItem } = useAuthToken();
+  const { token, chatid } = getItem();
+
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const fetchChatMessages = async () => {
+      setLoading(true);
+      setDisabled(true);
+      try {
+        const response = await fetch(
+          `${process.env.EndPoint}/api/v1/chat/${chatid}/messages`
+        );
+        if (response.ok) {
+          setLoading(false);
+          setDisabled(false);
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
           const data = await response.json();
           console.log(data.messages);
           setChatMessages(data.messages);
@@ -29,6 +59,7 @@ function Chat() {
         console.error(error);
       }
     };
+<<<<<<< HEAD
 
     fetchChatMessages();
   }, []);
@@ -36,6 +67,31 @@ function Chat() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+=======
+    const unsubScribe = fetchChatMessages();
+    return () => {
+      unsubScribe;
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log(chatMessages);
+    scrollRef.current?.scrollIntoView();
+  }, [chatMessages]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!prompt) {
+      toast.error("Prompt is required!");
+      return;
+    }
+    if (prompt.length < 2) {
+      toast.error("Prompt must be greater than 2 chars!");
+      return;
+    }
+    setLoading(true);
+    const notify = toast.loading("Thinking...");
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
     try {
       const response = await fetch(
         `http://127.0.0.1:5000/api/v1/chat/${chatid}/geminichat`,
@@ -50,6 +106,13 @@ function Chat() {
         }
       );
       if (response.ok) {
+<<<<<<< HEAD
+=======
+        setLoading(false);
+        toast.success("Responding...", {
+          id: notify,
+        });
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
         const data = await response.json();
         setChatMessages([
           ...chatMessages,
@@ -62,10 +125,19 @@ function Chat() {
       }
     } catch (error) {
       console.error(error);
+<<<<<<< HEAD
     }
   };
 
   console.log(chatid);
+=======
+      toast.error(error,{id:notify})
+    }
+  };
+
+
+  console.log(chatid)
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
 
   return (
     <>
@@ -74,6 +146,14 @@ function Chat() {
         <div className="justify-between flex flex-col h-screen  w-screen">
           <ChatNav />
           <div className="flex flex-1 flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch pt-[130px] md:px-[150px] mb-4">
+<<<<<<< HEAD
+=======
+            {loading && (
+              <p className="text-center font-semibold text-lg">
+                Loading chat...
+              </p>
+            )}
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
             {chatMessages.map((message, index) => {
               return message.role === "user" ? (
                 <UserChatitem key={index} text={message.parts} />
@@ -81,25 +161,52 @@ function Chat() {
                 <SystemChatItem key={index} text={message.parts} />
               );
             })}
+<<<<<<< HEAD
           </div>
           <div className="shadow-lg shadow-black px-4 pt-4 py-4 sm:mb-0  bg-[#e9f1ff] md:px-[150px]">
             <form className="relative flex" onSubmit={handleSubmit}>
               <input
+=======
+            <div ref={scrollRef}></div>
+          </div>
+
+          <div className="shadow-lg shadow-black px-4 pt-4 py-4 sm:mb-0  bg-[#e9f1ff] md:px-[150px]">
+            <form className="relative flex" onSubmit={handleSubmit}>
+              <input
+                disabled={disabled}
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
                 onChange={(e) => setPrompt(e.target.value)}
                 value={prompt}
                 id="userSendMessage"
                 type="text"
                 placeholder="Write your message prompt!"
                 required={true}
+<<<<<<< HEAD
                 className="w-full  border border-gray-500 focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-4 bg-gray-200 rounded-md py-3"
+=======
+                className={`w-full  border border-gray-500 focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-4 bg-gray-200 rounded-md py-3 ${
+                  loading && "cursor-not-allowed"
+                }
+                  ${disabled && "cursor-not-allowed"}`}
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
               />
               <div className="absolute right-0 items-center inset-y-0 flex gap-2">
                 <button
                   type="submit"
                   id="userSendButton"
+<<<<<<< HEAD
                   className="inline-flex items-center justify-center rounded-lg px-9 py-3 transition duration-500 ease-in-out text-white bg-blue-500 hover:bg-blue-300 focus:outline-none"
                 >
                   <span>Send</span>
+=======
+                  className={`inline-flex items-center justify-center rounded-lg px-9 py-3 transition duration-500 ease-in-out text-white bg-blue-500 hover:bg-blue-300 
+                 focus:outline-none ${!prompt && "cursor-not-allowed"} ${
+                    disabled && "cursor-not-allowed"
+                  } 
+                ${loading && "cursor-not-allowed"}`}
+                >
+                  <span>{loading ? "Loading..." : "Send"}</span>
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
@@ -127,6 +234,7 @@ function Chat() {
 }
 
 export default Chat;
+<<<<<<< HEAD
 
 // "use client";
 // import React, { useState } from "react";
@@ -247,3 +355,5 @@ export default Chat;
 // }
 
 // export default Chat;
+=======
+>>>>>>> 40fd0a3f80cb794cd4698d5d4000a1e14ba97292
