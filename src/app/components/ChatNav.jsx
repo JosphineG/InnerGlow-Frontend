@@ -11,7 +11,7 @@ function ChatNav() {
     <header className="w-screen flex justify-between items-center gap-2 px-4 md:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-[#e9f1ff]">
       <h1>InnerGlow</h1>
       <nav className="flex justify-between items-center gap-4 md:gap-20 capitalize">
-        <a href="/community">articles</a>
+        <a href="/community/articles">articles</a>
         <a href="/history">history</a>
         <button
           onClick={handleLogout}
