@@ -15,8 +15,8 @@ function SystemChatItem({ text }) {
         <Image
           src="/image-removebg-preview.png"
           alt="anxiety image"
-          width={60}
-          height={60}
+          width={80}
+          height={80}
           className="object-cover  object-top rounded-2xl"
         />
       </div>
