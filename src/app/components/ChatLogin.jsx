@@ -54,7 +54,7 @@ function Login() {
       <Toaster />
       <div className="flex  w-screen item-center justify-center md:flex-row p-12   h-screen flex-col">
         <div className="flex items-center justify-center text-center w-full h-full gap-8">
-          <div className="absolute top-[-200px]">
+          <div className="absolute left-0 top[-200px]">
             <Donut />
           </div>
           <div className="hidden md:flex h-[400px] rounded-2xl">
@@ -137,7 +137,7 @@ function Login() {
                 </div>
                 <div className="text-sm">
                   <a
-                    href="#"
+                    href="/reset-password"
                     className="font-medium text-indigo-600 hover:text-indigo-300 "
                   >
                     Forgot Password?
