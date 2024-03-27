@@ -6,7 +6,9 @@ import { convertDateTime } from "../../../hooks/useDateTime";
 import { useParams } from "next/navigation";
 function CommunityPage() {
   const { id } = useParams();
-//   const chatid = localStorage?.getItem("chatId");
+  const { getItem } = useAuthToken();
+  const { chatid } = getItem();
+  //   const chatid = localStorage?.getItem("chatId");
   const { clearAuthToken } = useAuthToken();
 
   const [article, setArticle] = useState();
@@ -44,17 +46,17 @@ function CommunityPage() {
   };
   return (
     <div>
-      <header className="w-screen flex justify-between items-center gap-2 px-4 md:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-[#e9f1ff]">
+      <header className="w-screen flex justify-between items-center gap-2 px-4 md:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
         <h1>
           <a href="/">InnerGlow</a>
         </h1>
         <nav className="flex justify-between items-center gap-4 md:gap-20 capitalize">
           <a href={`/community/articles`}>Articles</a>
-          {/* <a href={`/chat/${chatid}`}>chat</a> */}
+          <a href={`/chat/${chatid}`}>chat</a>
           <a href="/history">history</a>
           <button
             onClick={handleLogout}
-            className="bg-[#6495ED47] p-2 rounded-lg px-4"
+            className="bg-white p-2 rounded-lg px-4"
           >
             <span className="text-blue-500 font-semibold">Logout</span>
           </button>
@@ -81,11 +83,11 @@ function CommunityPage() {
       </div>
       <div className="pt-[10px] p-[20px] md:px-20 md:pt-[10px]">
         <div className="w-full  flex  flex-col md:flex-row">
-          <div className="bg-gray-400 h-[250px]">
+          <div className="bg-gray-400 h-[350px]">
             <img
               src={article?.image}
               alt="image"
-              className="object-cover rounded-lg md:w-[500px] h-[800px]"
+              className="object-cover rounded-lg md:w-[400px] h-full hover:scale-105"
             />
           </div>
 

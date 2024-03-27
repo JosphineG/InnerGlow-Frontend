@@ -12,7 +12,7 @@ function ChatNav({ name }) {
       <h1>InnerGlow</h1>
       <nav className="flex justify-between items-center gap-4 md:gap-20 capitalize text-white">
         <a href="/community/articles">articles</a>
-        <a href="/history">history</a>
+        {/* <a href="/history">history</a> */}
         <h3 className="text-lg p-2 rounded-lg px-4">
           Hi, <span className="text-white font-bold">{name}</span>
         </h3>
