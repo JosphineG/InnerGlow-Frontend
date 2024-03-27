@@ -4,11 +4,10 @@ const useAuthToken = () => {
       const token = localStorage?.getItem("innerAuth");
       const chatid = localStorage?.getItem("chatId");
       return { token, chatid }; // Return an object with token and chatid
+    } else {
+      return { token: null, chatid: null };
     }
-    // } else {
-    //   // return { token: null, chatid: null };
-    // }
-    // return { token: null }; // Return null if localStorage is not available
+    return { token: null }; // Return null if localStorage is not available
   };
 
   const clearAuthToken = () => {
