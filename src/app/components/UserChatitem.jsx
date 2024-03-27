@@ -1,7 +1,8 @@
 import React from "react";
 import Markdown from "react-markdown";
 // import myPic from "../src/assets/me (2).jpg";
-function UserChatitem({text}) {
+function UserChatitem({ text, name }) {
+  const sliced = name?.slice(0, 1);
   return (
     <div className="chat-message">
       <div className="flex items-end justify-end">
@@ -12,6 +13,9 @@ function UserChatitem({text}) {
             </span>
           </div>
         </div>
+        <h3 className="w-8 h-8 p-6 rounded-full order-2 bg-gray-300 uppercase text-center flex items-center justify-center font-bold text-blue-500">
+          {name?.slice(0, 2)}
+        </h3>
         {/* <img
           src={myPic}
           alt="My profile"

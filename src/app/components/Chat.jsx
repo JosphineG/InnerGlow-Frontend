@@ -11,6 +11,37 @@ function Chat() {
   const [chatMessages, setChatMessages] = useState([]);
   const { getItem } = useAuthToken();
   const { token, chatid } = getItem();
+  const [dataItem, setData] = useState();
+  useEffect(() => {
+    const getUser = async () => {
+      if (!token) {
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:5000/api/v1/user/profile",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (response.status == 200) {
+          const dataRespo = await response.json();
+          setData(dataRespo);
+          console.log(dataRespo);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    return () => getUser();
+  }, []);
 
   useEffect(() => {
     const fetchChatMessages = async () => {
@@ -38,7 +69,6 @@ function Chat() {
 
     try {
       const response = await fetch(
-
         `http://localhost:5000/api/v1/chat/${chatid}/geminichat`,
 
         {
@@ -73,13 +103,17 @@ function Chat() {
       <Toaster />
       {token !== "undefined" && token !== null ? (
         <div className="justify-between flex flex-col h-screen  w-screen">
-          <ChatNav />
+          <ChatNav name={dataItem?.username} />
           <div className="flex flex-1 flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch pt-[130px] md:px-[150px] mb-4">
             {chatMessages.map((message, index) => {
               return message.role === "user" ? (
-                <UserChatitem key={index} text={message.parts} />
+                <UserChatitem
+                  key={index}
+                  text={message?.parts}
+                  name={dataItem?.username}
+                />
               ) : (
-                <SystemChatItem key={index} text={message.parts} />
+                <SystemChatItem key={index} text={message?.parts} />
               );
             })}
           </div>

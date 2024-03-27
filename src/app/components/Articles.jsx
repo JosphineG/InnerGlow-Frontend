@@ -10,6 +10,39 @@ function Articles() {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const { chatid, token } = getItem();
   const [articles, setArticles] = useState();
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const getUser = async () => {
+      if (!token) {
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:5000/api/v1/user/profile",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (response.status == 200) {
+          const dataRespo = await response.json();
+          setData(dataRespo);
+          console.log(dataRespo);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    return () => getUser();
+  }, []);
+
   useEffect(() => {
     const fetchChatMessages = async () => {
       setLoading(true);
@@ -47,6 +80,12 @@ function Articles() {
         <nav className="flex justify-between items-center gap-4 md:gap-20 capitalize">
           <a href={`/chat/${chatid}`}>chat</a>
           <a href="/history">history</a>
+          <h3 className="text-lg p-2 rounded-lg px-4">
+            Hi,{" "}
+            <span className="text-blue-500 font-semibold">
+              {data?.username}
+            </span>
+          </h3>
           <button
             onClick={handleLogout}
             className="bg-[#6495ED47] p-2 rounded-lg px-4"
