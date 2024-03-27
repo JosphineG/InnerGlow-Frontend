@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next";
 import useAuthToken from "../../../hooks/useAuth";
-function ChatNav() {
+function ChatNav({ name }) {
   const { clearAuthToken } = useAuthToken();
   const handleLogout = () => {
     clearAuthToken();
@@ -13,6 +13,9 @@ function ChatNav() {
       <nav className="flex justify-between items-center gap-4 md:gap-20 capitalize">
         <a href="/community/articles">articles</a>
         <a href="/history">history</a>
+        <h3 className="text-lg p-2 rounded-lg px-4">
+          Hi, <span className="text-blue-500 font-semibold">{name}</span>
+        </h3>
         <button
           onClick={handleLogout}
           className="bg-[#6495ED47] p-2 rounded-lg px-4"

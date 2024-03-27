@@ -1,4 +1,3 @@
-
 const useAuthToken = () => {
   const getItem = () => {
     if (typeof window !== "undefined") {
