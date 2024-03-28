@@ -4,12 +4,12 @@ import { convertDateTime } from "../../../hooks/useDateTime";
 function SingleArticle({ article }) {
   console.log(article);
   return (
-    <div className="bg-white rounded-lg w-full shadow-sm shadow-black">
-      <div className="bg-gray-400 h-[120px]">
+    <div className="bg-white rounded-lg w-full shadow-sm shadow-black h-[280px] hover:scale-105">
+      <div className="bg-gray-300 h-[180px]">
         <img
           src={article?.image}
           alt="image"
-          className="object-cover rounded-lg"
+          className="object-cover rounded-lg w-full h-full"
         />
       </div>
       <div className="w-full px-2 flex justify-between gap-2">
