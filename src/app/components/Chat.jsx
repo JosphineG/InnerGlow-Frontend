@@ -125,7 +125,7 @@ function Chat() {
         <div className="justify-between flex flex-col h-screen w-screen">
           <ChatNav name={dataItem?.username} />
           <div className="flex flex-1 flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch pt-[130px] md:px-[150px] mb-4">
-            {chatMessages.length < 1 ? (
+            {chatMessages?.length < 1 ? (
               <div>
                 <SystemChatItem
                   text={
@@ -135,7 +135,7 @@ function Chat() {
                 <FaArrowDown className="w-8 h-8 animate-bounce font-bold absolute left-[50%] top-[70%]" />
               </div>
             ) : null}
-            {chatMessages.map((message, index) => {
+            {chatMessages?.map((message, index) => {
               return message.role === "user" ? (
                 <UserChatitem
                   key={index}
