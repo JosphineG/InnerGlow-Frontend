@@ -2,7 +2,7 @@ import React from "react";
 import { FaInstagram } from "react-icons/fa";
 function Footer() {
   return (
-    <div className="w-screen sticky bg-[#6495ED47]  p-6 gap-4 grid grid-cols-1 md:grid-cols-3">
+    <section id="contact" className="w-screen sticky bg-[#6495ED47]  p-6 gap-4 grid grid-cols-1 md:grid-cols-3">
       <div>
         <h3 className="font-bold text-lg">Contacts</h3>
         <p className="text-gray-600">Phone No: +254795256790</p>
@@ -48,7 +48,7 @@ function Footer() {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 

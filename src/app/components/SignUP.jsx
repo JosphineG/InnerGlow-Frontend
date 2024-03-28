@@ -149,6 +149,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
+import Donut from "./Donut";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
@@ -243,12 +244,15 @@ const SignUp = () => {
   return (
     <>
       <Toaster />
-      <div className="flex w-screen item-center justify-center md:flex-row p-12 h-screen flex-col">
+      <div className=" relative flex w-screen item-center justify-center md:flex-row p-12 h-screen flex-col">
+        <div className="absolute top-[-200px] left-[-100px] z-[-1]">
+            <Donut />
+          </div>
         <div className="flex items-center justify-center text-center w-full h-full gap-8">
           <div className="hidden md:flex h-[400px] rounded-2xl">
             <Image
-              src="/anxietyrm.png"
-              alt="anxiety image"
+              src="/virtualA.svg"
+              alt="virtualAssistant image"
               width={400}
               height={200}
               className="object-cover  object-top rounded-2xl"
@@ -349,6 +353,10 @@ const SignUp = () => {
                 </button>
               </div>
             </form>
+            
+          </div>
+          <div className="absolute bottom-[-200px] right-[-100px] z-[-1]">
+            <Donut />
           </div>
         </div>
       </div>

@@ -26,13 +26,13 @@ function LandingPage() {
 ]"
           >
             <h2 className="text-2xl mb-2">About InnerGlow</h2>
-            <p className="w-full text-left ">
+            <p className="w-full text-left text-gray-700">
               {`In today\'s interconnected world you can be surrounded by people,
               but still feel lonely and trusting others with our vulnerabilities
               is still hard.`}
-              n
+              
             </p>
-            <p className="text-left mt-2">
+            <p className="text-left mt-2 text-gray-700">
               <span className="text-blue-600 font-bold">InnerGlow</span> is an
               empathetic chatbot that serves as a confidant, providing a safe
               space for users to openly express their thoughts and emotions and
