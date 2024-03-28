@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import useAuthToken from "../../../hooks/useAuth";
-function Model({ setIsModelOpen, fetchChatMessages }) {
+function Model({ setIsModelOpen }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -44,8 +44,8 @@ function Model({ setIsModelOpen, fetchChatMessages }) {
         toast.success("Post created successfully", { id: notify });
         const data = await response.json();
         console.log("Post created:", data);
-        fetchChatMessages();
-        setIsModelOpen(true);
+        // fetchChatMessages();
+        setIsModelOpen(false);
         window.location.reload();
       } else {
         toast.error("Failed to create post", { id: notify });
