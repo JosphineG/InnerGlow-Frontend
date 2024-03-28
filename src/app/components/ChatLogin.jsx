@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import Donut from "./Donut";
 import useAuthToken from "../../../hooks/useAuth";
 function Login() {
-  const link = process.env.NEXTAUTH_URL;
   const { getItem } = useAuthToken();
   const { chatid } = getItem();
 
@@ -35,32 +34,33 @@ function Login() {
           password: password,
         }),
       });
-      if (response.status == 200) {
+      if (response?.status == 200) {
         toast.success("logged in successfully", { id: notification });
         console.log("logged in successfully");
       }
 
-      const data = await response.json();
-      localStorage.setItem("innerAuth", data.access_token);
+      const data = await response?.json();
+      localStorage.setItem("innerAuth", data?.access_token);
       window.location.href = `/chat/${chatid}`;
     } catch (error) {
       toast.error(error, { id: notification });
       console.error(error);
     }
   };
-  console.log(chatid);
+  // console.log(chatid);
   return (
     <>
       <Toaster />
-      <div className="flex  w-screen item-center justify-center md:flex-row p-12   h-screen flex-col">
-        <div className="flex items-center justify-center text-center w-full h-full gap-8">
-          <div className="absolute left-0 top[-200px]">
+      <div className=" relative flex  w-screen item-center justify-center md:flex-row p-12   h-screen flex-col">
+        <div className="absolute left-[-100px] top-[-200px] z-[-1]">
             <Donut />
           </div>
+        <div className=" flex items-center justify-center text-center w-full h-full gap-8">
+          
           <div className="hidden md:flex h-[400px] rounded-2xl">
             <Image
-              src="/anxietyrm.png"
-              alt="anxiety image"
+              src="/virtualA.svg"
+              alt="virtualAssistant image"
               width={400}
               height={400}
               className="object-cover  object-top rounded-2xl"
@@ -83,6 +83,7 @@ function Login() {
                 </a>
               </p>
             </div>
+
             <form className="flex flex-col w-full mt-8 space-y-6">
               <div className="w-full rounded-md shadow-sm -space-y-px">
                 {/* input code start */}
@@ -155,6 +156,9 @@ function Login() {
                 </button>
               </div>
             </form>
+          </div>
+           <div className="absolute right-[-100px] bottom-[-200px] z-[-1]">
+            <Donut />
           </div>
         </div>
       </div>

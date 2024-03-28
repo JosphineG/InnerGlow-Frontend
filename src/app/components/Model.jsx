@@ -45,7 +45,8 @@ function Model({ setIsModelOpen, fetchChatMessages }) {
         const data = await response.json();
         console.log("Post created:", data);
         fetchChatMessages();
-        setIsModelOpen(false);
+        setIsModelOpen(true);
+        window.location.reload();
       } else {
         toast.error("Failed to create post", { id: notify });
         console.error("Failed to create post");
