@@ -7,9 +7,9 @@ function LandingPage() {
   const { chatid } = getItem();
 
   return (
-    <div className="w-screen h-screen flex-col flex justify-center items-center overflow-x-hidden pt-4">
-      <div className="relative w-full h-[300px] flex  justify-center items-center flex-col text-[#0C5CE5] pt-2">
-        <h1 className="text-3xl text-center">
+    <div className="w-screen h-screen flex-col flex justify-center items-center overflow-x-hidden">
+      <div className="relative w-full h-[300px flex  justify-center items-center flex-col text-[#0C5CE5]  sm:pt-[180px] pt-[200px]">
+        <h1 className="sm:text-3xl text-xl text-center text-bold w-full">
           Welcome To InnerGlow
           <br />
           Your Compassionate Companion
@@ -30,7 +30,6 @@ function LandingPage() {
               {`In today\'s interconnected world you can be surrounded by people,
               but still feel lonely and trusting others with our vulnerabilities
               is still hard.`}
-              
             </p>
             <p className="text-left mt-2 text-gray-700">
               <span className="text-blue-600 font-bold">InnerGlow</span> is an

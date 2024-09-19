@@ -1,9 +1,9 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import useAuthToken from "../../../hooks/useAuth";
-function Model({ setIsModelOpen, fetchChatMessages }) {
+function Model({ setIsModelOpen, handleFetch }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -31,22 +31,24 @@ function Model({ setIsModelOpen, fetchChatMessages }) {
     formData.append("image", imageFile);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/v1/articles`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/articles`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         toast.success("Post created successfully", { id: notify });
         const data = await response.json();
         console.log("Post created:", data);
-        fetchChatMessages();
-        setIsModelOpen(true);
-        window.location.reload();
+        await handleFetch();
+        setIsModelOpen(false);
       } else {
         toast.error("Failed to create post", { id: notify });
         console.error("Failed to create post");

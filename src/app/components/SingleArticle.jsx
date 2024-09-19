@@ -2,9 +2,9 @@ import React from "react";
 import { FaUser } from "react-icons/fa";
 import { convertDateTime } from "../../../hooks/useDateTime";
 function SingleArticle({ article }) {
-  console.log(article);
+
   return (
-    <div className="bg-white rounded-lg w-full shadow-sm shadow-black h-[280px] hover:scale-105">
+    <div className="bg-white rounded-lg w-full shadow-sm shadow-black h-[340px] hover:scale-105">
       <div className="bg-gray-300 h-[180px]">
         <img
           src={article?.image}
@@ -31,7 +31,7 @@ function SingleArticle({ article }) {
       </div>
       <div className="px-2 py-2">
         <p>
-          {article?.description?.slice(0, 200)}...{" "}
+          {article?.description?.slice(0, 100)}...{" "}
           <span className="text-blue-500 font-semibold">
             <a href={`/community/articles/${article?._id}`}>Read more</a>
           </span>
