@@ -64,6 +64,7 @@ function Articles() {
 
         const data = await response.json();
         console.log(data);
+        console.log(response)
         setArticles(data);
       } else {
         throw new Error("Failed to fetch chat messages");
