@@ -64,11 +64,12 @@ function Articles() {
 
         const data = await response.json();
         console.log(data);
-        console.log(response)
+        console.log(response);
         setArticles(data);
-      } else {
-        throw new Error("Failed to fetch chat messages");
       }
+      // } else {
+      //   throw new Error("Failed to fetch chat messages");
+      // }
     } catch (error) {
       console.error(error);
     }

@@ -45,9 +45,9 @@ function Login() {
         console.log("logged in successfully");
         const data = await response?.json();
         localStorage.setItem("innerAuth", data?.access_token);
-        // const id = await getUser(data?.access_token);
-        // console.log(id);
-        // const uid = await getUserChat(id);
+        const id = await getUser(data?.access_token);
+        console.log(id);
+        const uid = await getUserChat(id);
          window.location.href = "/community/articles";
       }
       if (response?.status == 401) {
@@ -55,7 +55,7 @@ function Login() {
         toast.error("Wrong email or password...", { id: notification });
 
         console.log("login failed 401");
-        // window.location.href = "/chatsignup";
+        window.location.href = "/chatsignup";
       }
     } catch (error) {
       toast.error("Error", { id: notification });
