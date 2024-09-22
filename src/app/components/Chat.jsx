@@ -226,7 +226,10 @@ function Chat() {
                     {!isListening ? (
                       <FaMicrophoneSlash className="text-white w-5 h-5" />
                     ) : (
-                      <FaMicrophone className="text-white w-5 h-5" />
+                      <FaMicrophone
+                        className="text-white w-5 h-5"
+                        onClick={handleSubmit}
+                      />
                     )}
                   </button>
                 )}
