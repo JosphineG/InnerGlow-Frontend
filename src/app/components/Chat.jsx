@@ -22,6 +22,53 @@ function Chat() {
   const { id } = useParams();
   const router = useRouter();
 
+  // Function to submit form programmatically
+  const handleSubmit = async (e) => {
+    e?.preventDefault();
+    const notification = toast.loading("Thinking...");
+
+    if (!prompt) {
+      toast.error("Prompt should not be empty!", { id: notification });
+      return;
+    }
+    if (prompt.length < 4) {
+      toast.error("Prompt should be greater than 4 characters!", {
+        id: notification,
+      });
+      return;
+    }
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/chat/${chatid}/geminichat`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: prompt,
+          }),
+        }
+      );
+      if (response.ok) {
+        toast.success("Innerglow AI has responded!", { id: notification });
+        const data = await response.json();
+        setChatMessages([
+          ...chatMessages,
+          { role: "user", parts: prompt },
+          { role: "model", parts: data },
+        ]);
+        setPrompt(""); // Clear prompt after submission
+      } else {
+        toast.error("Failed to send prompt", { id: notification });
+        throw new Error("Failed to send prompt");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message, { id: notification });
+    }
+  };
+
   // Speech Recognition
   const {
     text: speechText,
@@ -29,9 +76,12 @@ function Chat() {
     startListening,
     stopListening,
     hasRecognitionSupport,
-  } = useSpeechRecognition();
+  } = useSpeechRecognition((recognizedText) => {
+    // This will be triggered when the user stops speaking
+    setPrompt((prevPrompt) => prevPrompt + " " + recognizedText);
+    handleSubmit(); // Automatically submit the form when speech stops
+  });
 
-  // Update prompt with recognized speech
   useEffect(() => {
     if (speechText) {
       setPrompt((prevPrompt) => prevPrompt + " " + speechText); // Append speech to existing text
@@ -93,52 +143,6 @@ function Chat() {
 
     fetchChatMessages();
   }, [chatid]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const notification = toast.loading("Thinking...");
-
-    if (!prompt) {
-      toast.error("Prompt should not be empty!", { id: notification });
-      return;
-    }
-    if (prompt.length < 4) {
-      toast.error("Prompt should be greater than 4 characters!", {
-        id: notification,
-      });
-      return;
-    }
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/chat/${chatid}/geminichat`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            prompt: prompt,
-          }),
-        }
-      );
-      if (response.ok) {
-        toast.success("Innerglow AI has responded!", { id: notification });
-        const data = await response.json();
-        setChatMessages([
-          ...chatMessages,
-          { role: "user", parts: prompt },
-          { role: "model", parts: data },
-        ]);
-        setPrompt(""); // Clear prompt after submission
-      } else {
-        toast.error("Failed to send prompt", { id: notification });
-        throw new Error("Failed to send prompt");
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error(error.message, { id: notification });
-    }
-  };
 
   useEffect(() => {
     adjustTextAreaHeight();
@@ -207,57 +211,28 @@ function Chat() {
                   <button
                     type="button"
                     onClick={isListening ? stopListening : startListening}
-                    className="inline-flex items-center justify-center rounded-lg px-2 py-3 bg-blue-500 text-white hover:opacity-70 focus:outline-none mr-2"
+                    className="bg-indigo-500 rounded-full p-3"
+                    title={
+                      isListening
+                        ? "Listening... click to stop"
+                        : "Start Voice Input"
+                    }
                   >
-                    {!isListening ? (
-                      <FaMicrophoneSlash className="h-6 w-6" />
+                    {isListening ? (
+                      <FaMicrophoneSlash className="text-white w-5 h-5" />
                     ) : (
-                      <FaMicrophone className="h-6 w-6" />
+                      <FaMicrophone className="text-white w-5 h-5" />
                     )}
                   </button>
                 )}
                 <button
+                  className="bg-indigo-500 font-semibold rounded-full px-4 py-3 text-sm text-white focus:outline-none md:flex hidden"
                   type="submit"
-                  id="userSendButton"
-                  className={`md:inline-flex items-center justify-center rounded-lg px-9 py-3 transition duration-500 ease-in-out text-white bg-blue-500 hover:opacity-70 focus:outline-none ${
-                    prompt.trim().length >= 2
-                      ? "bg-gradient-to-r from-blue-500 to-violet-500"
-                      : "bg-gray-500"
-                  } mr-2 hidden`}
                 >
-                  <span>Send</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="h-6 w-6 ml-2 transform rotate-90"
-                  >
-                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
-                  </svg>
-                </button>
-                <button
-                  type="submit"
-                  id="userSendButton"
-                  className={`inline-flex items-center justify-center rounded-lg px-2 py-3 transition duration-500 ease-in-out text-white bg-blue-500 hover:opacity-70 focus:outline-none ${
-                    prompt.trim().length >= 2
-                      ? "bg-gradient-to-r from-blue-500 to-violet-500"
-                      : "bg-gray-500"
-                  }  mr-2 md:hidden`}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="h-6 w-6 ml-2 transform rotate-90"
-                  >
-                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
-                  </svg>
+                  Send
                 </button>
               </div>
             </form>
-            <footer className="w-full px-4 py-2 mt-4 text-center text-gray-500 text-sm">
-              <p>InnerGlow AI 2024. All rights reserved.</p>
-            </footer>
           </div>
         </div>
       ) : (
