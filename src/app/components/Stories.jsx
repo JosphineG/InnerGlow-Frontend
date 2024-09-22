@@ -87,7 +87,7 @@ function Stories({ stories }) {
                 </p>
                 <p>{story.time}</p>
                 <div className="px-2 py-2 overflow-x-clip">
-                  <p className="text-wrap break-words w-full bg-red-500 overflow-x-clip">
+                  <p className="text-wrap break-words w-full overflow-x-clip">
                     {/* Use html-react-parser to safely parse the truncated HTML content */}
                     {parse ? (
                       <span className="">
