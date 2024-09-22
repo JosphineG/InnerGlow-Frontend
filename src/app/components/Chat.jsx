@@ -6,16 +6,38 @@ import UserChatitem from "./UserChatitem";
 import useAuthToken from "../../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
 import Login from "../components/ChatLogin";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaMicrophone, FaMicrophoneSlash } from "react-icons/fa"; // Import microphone icons
+import { usePathname, useParams, useRouter } from "next/navigation";
+import useSpeechRecognition from "../../../hooks/useSpeechRecognitionHook"; // Import custom hook
 
 function Chat() {
   const [prompt, setPrompt] = useState("");
   const scrollRef = useRef(null);
-    const promptRef = useRef(null);
+  const promptRef = useRef(null);
   const [chatMessages, setChatMessages] = useState([]);
   const { getItem } = useAuthToken();
   const { token, chatid } = getItem();
   const [dataItem, setData] = useState();
+  const pathname = usePathname();
+  const { id } = useParams();
+  const router = useRouter();
+
+  // Speech Recognition
+  const {
+    text: speechText,
+    isListening,
+    startListening,
+    stopListening,
+    hasRecognitionSupport,
+  } = useSpeechRecognition();
+
+  // Update prompt with recognized speech
+  useEffect(() => {
+    if (speechText) {
+      setPrompt((prevPrompt) => prevPrompt + " " + speechText); // Append speech to existing text
+    }
+  }, [speechText]);
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: "smooth" });
@@ -42,7 +64,6 @@ function Chat() {
 
         if (response.status === 200) {
           const { userProfile } = await response.json();
-          console.log(userProfile);
           setData(userProfile);
         }
       } catch (error) {
@@ -118,21 +139,23 @@ function Chat() {
       toast.error(error.message, { id: notification });
     }
   };
- useEffect(() => {
-   adjustTextAreaHeight();
- }, []);
 
- const adjustTextAreaHeight = (maxHeight = 200) => {
-   const textArea = promptRef.current;
-   if (textArea) {
-     textArea.style.height = "auto";
-     if (textArea.scrollHeight > maxHeight) {
-       textArea.style.height = `${maxHeight}px`;
-     } else {
-       textArea.style.height = `${textArea.scrollHeight}px`;
-     }
-   }
- };
+  useEffect(() => {
+    adjustTextAreaHeight();
+  }, [prompt]);
+
+  const adjustTextAreaHeight = (maxHeight = 200) => {
+    const textArea = promptRef.current;
+    if (textArea) {
+      textArea.style.height = "auto";
+      if (textArea.scrollHeight > maxHeight) {
+        textArea.style.height = `${maxHeight}px`;
+      } else {
+        textArea.style.height = `${textArea.scrollHeight}px`;
+      }
+    }
+  };
+
   return (
     <>
       <Toaster />
@@ -168,7 +191,6 @@ function Chat() {
               <textarea
                 ref={promptRef}
                 wrap="true"
-                // rows={3}
                 onChange={(e) => {
                   setPrompt(e.target.value);
                   adjustTextAreaHeight();
@@ -181,6 +203,19 @@ function Chat() {
                 className="w-full border border-gray-500 focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 px-4 bg-gray-200 rounded-xl py-3  md:pr-[120px] pr-[60px]"
               ></textarea>
               <div className="absolute right-0 items-center inset-y-0 flex gap-2">
+                {hasRecognitionSupport && (
+                  <button
+                    type="button"
+                    onClick={isListening ? stopListening : startListening}
+                    className="inline-flex items-center justify-center rounded-lg px-2 py-3 bg-blue-500 text-white hover:opacity-70 focus:outline-none mr-2"
+                  >
+                    {!isListening ? (
+                      <FaMicrophoneSlash className="h-6 w-6" />
+                    ) : (
+                      <FaMicrophone className="h-6 w-6" />
+                    )}
+                  </button>
+                )}
                 <button
                   type="submit"
                   id="userSendButton"

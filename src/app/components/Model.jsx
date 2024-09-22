@@ -1,24 +1,45 @@
 "use client";
 import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
+import ReactQuill from "react-quill"; // Import Quill
+import "react-quill/dist/quill.snow.css"; // Import styles for Quill
 import toast, { Toaster } from "react-hot-toast";
 import useAuthToken from "../../../hooks/useAuth";
+
 function Model({ setIsModelOpen, handleFetch }) {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(""); // Will now hold HTML content from Quill
   const [category, setCategory] = useState("");
   const [imageFile, setImageFile] = useState(null);
 
   const { getItem } = useAuthToken();
   const { token } = getItem();
 
+  // Define modules for ReactQuill to include more toolbar options
+  const quillModules = {
+    toolbar: [
+      ["bold", "italic", "underline", "strike"],
+      [{ align: [] }],
+
+      [{ list: "ordered" }, { list: "bullet" }],
+      [{ indent: "-1" }, { indent: "+1" }],
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["link", "image", "video"],
+      [{ color: [] }, { background: [] }],
+      [{ "code-block": true }],
+      ["clean"],
+    ],
+  };
+
   async function createPost(e) {
     e.preventDefault();
     const notify = toast.loading("Creating article...");
+
     if (!imageFile) {
-      toast.error("No image selected File", { id: notify });
+      toast.error("No image selected", { id: notify });
       return;
     }
+
     if (!title || !description) {
       toast.error("Title and description are required", { id: notify });
       return;
@@ -27,7 +48,7 @@ function Model({ setIsModelOpen, handleFetch }) {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("category", category);
-    formData.append("description", description);
+    formData.append("description", description); // Description now holds Quill HTML content
     formData.append("image", imageFile);
 
     try {
@@ -60,7 +81,7 @@ function Model({ setIsModelOpen, handleFetch }) {
   }
 
   return (
-    <div className="w-screen h-screen absolute z-[99999]">
+    <div className="w-screen h-screen absolute z-[99999] overflow-y-scroll ">
       <Toaster />
       <div className="w-full h-full bg-[rgba(0,0,60,.9)] flex items-center justify-center">
         <div
@@ -71,8 +92,8 @@ function Model({ setIsModelOpen, handleFetch }) {
             <FaTimes className="w-[40px] h-[40px] transition-all duration-1000 ease-in-out border rounded-full p-1" />
           </p>
         </div>
-        <div className="bg-white rounded-xl z-[999999] w-[80%] p-4 md:w-[400px] mt-8">
-          <form id="postForm" className="w-full px-2 py-2">
+        <div className="bg-white rounded-xl z-[999999] w-[95%] overflow-y-auto p-4 md:w-[50%] mt-8 h-full ">
+          <form id="postForm" className="w-full px-2 py-2  gap-8 space-y-6">
             <div className="form-group">
               <label htmlFor="imageUpload" className="block font-bold">
                 Upload Image:
@@ -85,7 +106,7 @@ function Model({ setIsModelOpen, handleFetch }) {
                 onChange={(e) => {
                   setImageFile(e.target.files[0]);
                 }}
-                className="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-bold border-2"
+                className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-bold border-2"
               />
             </div>
             <div className="form-group">
@@ -119,14 +140,14 @@ function Model({ setIsModelOpen, handleFetch }) {
               <label htmlFor="description" className="block font-bold">
                 Description:
               </label>
-              <textarea
-                id="description"
-                required
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
-                className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 border-2"
-              ></textarea>
+              {/* Use ReactQuill with custom toolbar options */}
+              <ReactQuill
+                theme="snow"
+                value={description}
+                onChange={setDescription}
+                className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 "
+                modules={quillModules} // Apply the modules to ReactQuill
+              />
             </div>
             <button
               type="submit"
