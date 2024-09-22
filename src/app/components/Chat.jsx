@@ -28,7 +28,7 @@ function Chat() {
     e?.preventDefault();
     const notification = toast.loading("Thinking...");
 
-    if (!prompt || prompt.trim() === "") {
+    if (!prompt || !prompt.trim() === "") {
       toast.error("Prompt should not be empty!", { id: notification });
       return;
     }
