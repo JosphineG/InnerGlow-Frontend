@@ -28,10 +28,10 @@ function Chat() {
     e?.preventDefault();
     const notification = toast.loading("Thinking...");
 
-    // if (!prompt || !prompt.trim() === "") {
-    //   toast.error("Prompt should not be empty!", { id: notification });
-    //   return;
-    // }
+    if (!prompt || prompt.trim() === "") {
+      toast.error("Prompt should not be empty!", { id: notification });
+      return;
+    }
     if (prompt.length < 4) {
       toast.error("Prompt should be greater than 4 characters!", {
         id: notification,
@@ -82,7 +82,7 @@ function Chat() {
     // setText();
     // This will be triggered when the user stops speaking
     setPrompt((prevPrompt) => (prevPrompt + " " + recognizedText).trim());
-    handleSubmit(); // Automatically submit the form when speech stops
+    // Automatically submit the form when speech stops
   });
 
   useEffect(() => {
