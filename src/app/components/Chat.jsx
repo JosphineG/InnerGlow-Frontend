@@ -18,6 +18,7 @@ function Chat() {
   const { getItem } = useAuthToken();
   const { token, chatid } = getItem();
   const [dataItem, setData] = useState();
+  const [text, setText] = useState("");
   const pathname = usePathname();
   const { id } = useParams();
   const router = useRouter();
@@ -27,7 +28,7 @@ function Chat() {
     e?.preventDefault();
     const notification = toast.loading("Thinking...");
 
-    if (!prompt) {
+    if (!prompt || prompt.trim() === "") {
       toast.error("Prompt should not be empty!", { id: notification });
       return;
     }
@@ -77,8 +78,9 @@ function Chat() {
     stopListening,
     hasRecognitionSupport,
   } = useSpeechRecognition((recognizedText) => {
+    setText(recognizedText);
     // This will be triggered when the user stops speaking
-    setPrompt((prevPrompt) => prevPrompt + " " + recognizedText);
+    setPrompt((prevPrompt) => (prevPrompt + " " + text).trim());
     handleSubmit(); // Automatically submit the form when speech stops
   });
 
@@ -199,7 +201,7 @@ function Chat() {
                   setPrompt(e.target.value);
                   adjustTextAreaHeight();
                 }}
-                value={prompt}
+                value={prompt} // Ensure it's never undefined, fallback to empty string
                 id="userSendMessage"
                 type="text"
                 placeholder="Write your message prompt!"
@@ -211,14 +213,16 @@ function Chat() {
                   <button
                     type="button"
                     onClick={isListening ? stopListening : startListening}
-                    className="bg-indigo-500 rounded-full p-3"
+                    className={`bg-indigo-500 rounded-full p-3 ${
+                      isListening ? "animate-pulse" : ""
+                    }`}
                     title={
                       isListening
                         ? "Listening... click to stop"
                         : "Start Voice Input"
                     }
                   >
-                    {isListening ? (
+                    {!isListening ? (
                       <FaMicrophoneSlash className="text-white w-5 h-5" />
                     ) : (
                       <FaMicrophone className="text-white w-5 h-5" />
@@ -226,10 +230,41 @@ function Chat() {
                   </button>
                 )}
                 <button
-                  className="bg-indigo-500 font-semibold rounded-full px-4 py-3 text-sm text-white focus:outline-none md:flex hidden"
                   type="submit"
+                  id="userSendButton"
+                  className={`md:inline-flex items-center justify-center rounded-lg px-9 py-3 transition duration-500 ease-in-out text-white bg-blue-500 hover:opacity-70 focus:outline-none ${
+                    prompt.trim().length >= 2
+                      ? "bg-gradient-to-r from-blue-500 to-violet-500"
+                      : "bg-gray-500"
+                  } mr-2 hidden`}
                 >
-                  Send
+                  <span>Send</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="h-6 w-6 ml-2 transform rotate-90"
+                  >
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+                  </svg>
+                </button>
+                <button
+                  type="submit"
+                  id="userSendButton"
+                  className={`inline-flex items-center justify-center rounded-lg px-2 py-3 transition duration-500 ease-in-out text-white bg-blue-500 hover:opacity-70 focus:outline-none ${
+                    prompt.trim().length >= 2
+                      ? "bg-gradient-to-r from-blue-500 to-violet-500"
+                      : "bg-gray-500"
+                  }  mr-2 md:hidden`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="h-6 w-6 ml-2 transform rotate-90"
+                  >
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+                  </svg>
                 </button>
               </div>
             </form>
