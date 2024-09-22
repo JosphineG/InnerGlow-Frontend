@@ -44,7 +44,7 @@ function Articles() {
     };
 
     return () => getUser();
-  }, []);
+  }, [token]);
 
   useEffect(() => {
     const unsubScribe = fechArticles();
@@ -66,8 +66,7 @@ function Articles() {
         console.log(data);
         console.log(response);
         setArticles(data);
-      }
-      else {
+      } else {
         throw new Error("Failed to fetch chat messages");
       }
     } catch (error) {
@@ -164,10 +163,7 @@ function Articles() {
         </div>
         {isModelOpen && (
           <div className="absolute top-0">
-            <Model
-              setIsModelOpen={setIsModelOpen}
-              handleFetch={fechArticles}
-            />
+            <Model setIsModelOpen={setIsModelOpen} handleFetch={fechArticles} />
           </div>
         )}
       </div>

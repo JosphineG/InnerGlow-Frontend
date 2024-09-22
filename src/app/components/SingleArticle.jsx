@@ -1,9 +1,20 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { convertDateTime } from "../../../hooks/useDateTime";
-import parse from "html-react-parser"; // Import html-react-parser
 
 function SingleArticle({ article }) {
+  const [parse, setParse] = useState(null); // State to hold the parser function
+
+  useEffect(() => {
+    const loadParser = async () => {
+      const { default: parser } = await import("html-react-parser");
+      setParse(() => parser); // Set the parser function in state
+    };
+
+    loadParser();
+  }, []);
+
   // Slice the description to show the first 100 characters and add ellipsis
   const truncatedDescription =
     article?.description.length > 100
@@ -39,7 +50,11 @@ function SingleArticle({ article }) {
       <div className="px-2 py-2">
         <p>
           {/* Use html-react-parser to safely parse the truncated HTML content */}
-          <span>{parse(truncatedDescription)}</span>{" "}
+          {parse ? (
+            <span>{parse(truncatedDescription)}</span>
+          ) : (
+            <span>{truncatedDescription}</span>
+          )}{" "}
           <span className="text-blue-500 font-semibold">
             <a href={`/community/articles/${article?._id}`}>Read more</a>
           </span>

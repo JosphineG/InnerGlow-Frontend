@@ -4,7 +4,6 @@ import useAuthToken from "../../../hooks/useAuth";
 import { FaUser } from "react-icons/fa";
 import { convertDateTime } from "../../../hooks/useDateTime";
 import { useParams } from "next/navigation";
-import parse from "html-react-parser"; // Import html-react-parser
 
 function CommunityPage() {
   const { id } = useParams();
@@ -15,10 +14,20 @@ function CommunityPage() {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [parse, setParse] = useState(null); // State for the parser
 
   const openNav = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const loadParser = async () => {
+      const { default: parser } = await import("html-react-parser");
+      setParse(() => parser); // Set the parser function in state
+    };
+
+    loadParser();
+  }, []);
 
   useEffect(() => {
     const getUser = async () => {
@@ -47,7 +56,7 @@ function CommunityPage() {
       }
     };
 
-    return () => getUser();
+    getUser();
   }, [token]);
 
   useEffect(() => {
@@ -170,7 +179,7 @@ function CommunityPage() {
             <div className="gap-6 flex flex-col px-2 md:py-0 py-6 w-full md:w-[600px] md:ml-[60px]">
               {/* Render HTML content using html-react-parser */}
               <div className="text-xl leading-relaxed font-sans text-gray-800">
-                {description && parse(description)}
+                {description && parse ? parse(description) : description}
               </div>
             </div>
           </div>
