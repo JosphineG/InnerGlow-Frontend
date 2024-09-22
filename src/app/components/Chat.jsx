@@ -213,7 +213,11 @@ function Chat() {
                 {hasRecognitionSupport && (
                   <button
                     type="button"
-                    onClick={isListening ? stopListening : startListening}
+                    onClick={
+                      isListening
+                        ? { stopListening, handleSubmit }
+                        : startListening
+                    }
                     className={`bg-indigo-500 rounded-full p-3 ${
                       isListening ? "animate-pulse" : ""
                     }`}
@@ -226,10 +230,7 @@ function Chat() {
                     {!isListening ? (
                       <FaMicrophoneSlash className="text-white w-5 h-5" />
                     ) : (
-                      <FaMicrophone
-                        className="text-white w-5 h-5"
-                        onClick={handleSubmit}
-                      />
+                      <FaMicrophone className="text-white w-5 h-5" />
                     )}
                   </button>
                 )}
