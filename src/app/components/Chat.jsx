@@ -78,9 +78,10 @@ function Chat() {
     stopListening,
     hasRecognitionSupport,
   } = useSpeechRecognition((recognizedText) => {
-    setText(recognizedText);
+    if (!recognizedText) return;
+    // setText();
     // This will be triggered when the user stops speaking
-    setPrompt((prevPrompt) => (prevPrompt + " " + text).trim());
+    setPrompt((prevPrompt) => (prevPrompt + " " + recognizedText).trim());
     handleSubmit(); // Automatically submit the form when speech stops
   });
 
