@@ -102,7 +102,7 @@ function Model({ setIsModelOpen, handleFetch }) {
             <FaTimes className="w-[40px] h-[40px] transition-all duration-1000 ease-in-out border rounded-full p-1" />
           </p>
         </div>
-        <div className="bg-white rounded-xl z-[999999] w-[95%] overflow-y-auto p-4 md:w-[50%] mt-8 h-full">
+        <div className="bg-white rounded-xl z-[999999] w-[95%] overflow-y-auto p-4 md:w-[50%] mt-8 h-[90%]">
           <form id="postForm" className="w-full px-2 py-2 gap-8 space-y-6">
             <div className="form-group">
               <label htmlFor="imageUpload" className="block font-bold">

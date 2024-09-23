@@ -97,7 +97,7 @@ function Articles() {
           </a>
           <nav className="md:flex justify-between items-center gap-4 md:gap-20 capitalize hidden">
             <a href={`/chat/${chatid}`}>chat</a>
-            <a href="/history">history</a>
+            <a href="/history">stories</a>
             {token && (
               <h3 className="text-lg p-2 rounded-lg px-4">
                 Hi,{" "}
@@ -128,7 +128,7 @@ function Articles() {
               )}
 
               <a href={`/chat/${chatid}`}>chat</a>
-              <a href="/history">history</a>
+              <a href="/history">stories</a>
 
               <button
                 onClick={handleLogout}

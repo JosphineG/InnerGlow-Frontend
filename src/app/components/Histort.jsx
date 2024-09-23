@@ -156,10 +156,10 @@ function History() {
               onClick={handleOpenModel}
             >
               <FaPlus />
-              <span>Create Article</span>
+              <span>Create story</span>
             </button>
           </div>
-          <div className="grid grid-flow-col overflow-x-auto gap-4 scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch mt-[100px]">
+          <div className="grid grid-flow-col overflow-x-auto gap-4 scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch mt-[100px] justify-center items-center">
             <Stories stories={stories} />
           </div>
         </div>

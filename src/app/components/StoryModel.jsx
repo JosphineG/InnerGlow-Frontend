@@ -43,12 +43,12 @@ function Model({ setIsModelOpen, handleFetch }) {
 
   async function createPost(e) {
     e.preventDefault();
-    const notify = toast.loading("Creating article...");
+    const notify = toast.loading("Creating story...");
 
-    if (!imageFile) {
-      toast.error("No image selected", { id: notify });
-      return;
-    }
+    // if (!imageFile) {
+    //   toast.error("No image selected", { id: notify });
+    //   return;
+    // }
 
     if (!title || !description) {
       toast.error("Title and description are required", { id: notify });
@@ -59,7 +59,7 @@ function Model({ setIsModelOpen, handleFetch }) {
     formData.append("title", title);
     formData.append("category", category);
     formData.append("description", description); // Holds Quill HTML content
-    formData.append("image", imageFile);
+    // formData.append("image", imageFile);
 
     try {
       const response = await fetch(
@@ -102,9 +102,9 @@ function Model({ setIsModelOpen, handleFetch }) {
             <FaTimes className="w-[40px] h-[40px] transition-all duration-1000 ease-in-out border rounded-full p-1" />
           </p>
         </div>
-        <div className="bg-white rounded-xl z-[999999] w-[95%] overflow-y-auto p-4 md:w-[50%] mt-8 h-full">
+        <div className="bg-white rounded-xl z-[999999] w-[95%] overflow-y-auto p-4 md:w-[50%] mt-8 h-[70%]">
           <form id="postForm" className="w-full px-2 py-2 gap-8 space-y-6">
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="imageUpload" className="block font-bold">
                 Upload Image:
               </label>
@@ -118,7 +118,7 @@ function Model({ setIsModelOpen, handleFetch }) {
                 }}
                 className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-bold border-2"
               />
-            </div>
+            </div> */}
             <div className="form-group">
               <label htmlFor="title" className="block font-bold">
                 Title:

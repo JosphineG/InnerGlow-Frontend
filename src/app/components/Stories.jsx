@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { convertDateTime } from "../../../hooks/useDateTime";
+import { FaUser } from "react-icons/fa";
 const storys = [
   {
     _id: "66f04604a52867ac4b3bcd56",
@@ -80,38 +82,23 @@ function Stories({ stories }) {
             key={index}
             className="shadow-3xl shadow-black justify-center items-center flex text-black p-1"
           >
-            <div className="bg-white px-6 py-12 rounded-2xl flex flex-row items-start justify-start space-x-4 mx-2 ">
+            <div className="bg-white px-6 py-6 rounded-2xl flex flex-row items-start justify-start space-x-4 mx-2 ">
               <div>
                 <p className="w-full text-black  font-semibold">
                   {story.title}
                 </p>
-                <p>{story.time}</p>
-                <div className="px-2 py-2 overflow-x-clip">
-                  <p className="text-wrap break-words w-full overflow-x-clip">
-                    {/* Use html-react-parser to safely parse the truncated HTML content */}
-                    {parse ? (
-                      <span className="">
-                        {parse(
-                          story?.description?.length > 100
-                            ? story?.description?.slice(0, 80) + "..."
-                            : story?.description
-                        )}
-                      </span>
-                    ) : (
-                      <span className="">
-                        {parse(
-                          story?.description?.length > 100
-                            ? story?.description?.slice(0, 80) + "..."
-                            : story?.description
-                        )}
-                      </span>
-                    )}{" "}
-                    <span className="text-blue-500 font-semibold">
-                      <a href={`/community/story/${story?._id}`}>Read more</a>
-                    </span>
-                  </p>
+                <p>{convertDateTime(story?.time)}</p>
+                <div className="px-2 py-2 overflow-x-clip mt-4">
+                  <span>
+                    {parse(story?.description?.slice(0, 150) + "...")}
+                  </span>
+                  <span className="text-blue-500 font-semibold py-2 text-md">
+                    <a href={`/community/story/${story?._id}`}>Read more</a>
+                  </span>
                 </div>
-                <p>{story.createdBy}</p>
+                <p className="font-semibold text-gray-700 text-lg ml-2 mt-8 flex flex-row items-center gap-2">
+                  <FaUser /> {story.createdBy}
+                </p>
               </div>
             </div>
           </div>
