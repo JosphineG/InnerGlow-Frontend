@@ -99,7 +99,7 @@ function CommunityPage() {
         <nav className="md:flex justify-between items-center gap-4 md:gap-20 capitalize hidden">
           <a href={`/community/articles`}>Articles</a>
           <a href={`/chat/${chatid}`}>Chat</a>
-          <a href="/history">History</a>
+          <a href="/stories">Stories</a>
           {token && (
             <h3 className="text-lg rounded-lg ">
               Hi,{" "}
@@ -130,7 +130,7 @@ function CommunityPage() {
             )}
             <a href={`/community/articles`}>Articles</a>
             <a href={`/chat/${chatid}`}>Chat</a>
-            <a href="/history">History</a>
+            <a href="/stories">Stories</a>
             <button
               onClick={handleLogout}
               className="bg-white p-2 rounded-lg px-4"

@@ -18,7 +18,7 @@ function ChatNav({ name }) {
       </a>
       <nav className="md:flex justify-between items-center gap-4 md:gap-20 capitalize text-white hidden">
         <a href="/community/articles">Articles</a>
-        <a href="/history">Stories</a>
+        <a href="/stories">Stories</a>
         <h3 className="text-lg p-2 rounded-lg px-4">
           Hi, <span className="text-white font-bold">{name}</span>
         </h3>
@@ -35,7 +35,7 @@ function ChatNav({ name }) {
             Hi, <span className="text-white font-bold capitalize">{name}</span>
           </h3>
           <a href="/community/articles">Articles</a>
-          <a href="/history">Stories</a>
+          <a href="/stories">Stories</a>
           <button
             onClick={handleLogout}
             className="bg-white p-2 rounded-lg px-4"
@@ -43,7 +43,7 @@ function ChatNav({ name }) {
             <span className="text-blue-500 font-semibold">Logout</span>
           </button>{" "}
         </div>
-      )}~
+      )}
       <div className="space-y-[5px] md:hidden" onClick={openNav}>
         <div className="w-[25px] h-[3px] bg-white" />
         <div className="w-[25px] h-[3px] bg-white" />
