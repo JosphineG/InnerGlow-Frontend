@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "InnerGlow",
-  description: "Mental health and wellbeing website",
+  description: "Mental health and wellbeing ",
 };
 
 export default function RootLayout({ children }) {
