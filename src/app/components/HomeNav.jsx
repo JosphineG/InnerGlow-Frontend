@@ -21,7 +21,7 @@ const HomeNavbar = () => {
           {/* <Image src="/innerglow.png" alt="Logo" className="mr-2" width={200} height={0}/> */}
         </div>
 
-        <div className="flex-1 md:flex items-center space-x-4   justify-center bg-red- gap-[100px] mr-[-150px] font-semibold hidden">
+        <div className="flex-1 md:flex items-center space-x-2   justify-center gap-[30px] mr-[-150px] hidden text-lg font-bold uppercase">
           <Link href="#about" className="text-white hover:text-gray-200">
             About
           </Link>
@@ -38,7 +38,7 @@ const HomeNavbar = () => {
         <div className="ml-auto hidden sm:block">
           <a
             href={`/chat/${chatid}`}
-            className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-4 rounded-l-full rounded-r-full font-semibold"
+            className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-6 rounded-l-full rounded-r-full font-semibold"
           >
             Get Started
           </a>
@@ -46,7 +46,7 @@ const HomeNavbar = () => {
       </div>
       {isOpen && (
         <div
-          className="md:hidden flex bg-blue-500 justify-center gap-[50px] font-semibold absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500"
+          className="md:hidden flex bg-blue-500 justify-center gap-[50px] font-bold absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 text-lg uppercase"
           onClick={openNav}
         >
           <Link href="#about" className="text-white hover:text-gray-200">
@@ -64,7 +64,7 @@ const HomeNavbar = () => {
           <div className="sm:hidden block">
             <a
               href={`/chat/${chatid}`}
-              className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-4 rounded-l-full rounded-r-full font-semibold"
+              className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-6 rounded-l-full rounded-r-full font-semibold"
             >
               Get Started
             </a>

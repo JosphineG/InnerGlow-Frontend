@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: "Inter", Verdana, Geneva, Tahoma, sans-serif !important;
+  /* font-family: "Inter", Verdana, Geneva, Tahoma, sans-serif !important; */
   background: #e9f1ff;
   overflow-x: hidden;
 }

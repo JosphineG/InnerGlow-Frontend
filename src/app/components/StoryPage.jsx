@@ -5,13 +5,13 @@ import { FaUser } from "react-icons/fa";
 import { convertDateTime } from "../../../hooks/useDateTime";
 import { useParams } from "next/navigation";
 
-function CommunityPage() {
+function StoryPage() {
   const { id } = useParams();
   const { getItem } = useAuthToken();
   const { chatid, token } = getItem();
   const { clearAuthToken } = useAuthToken();
   const [data, setData] = useState();
-  const [article, setArticle] = useState({});
+  const [story, setStory] = useState({});
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [parse, setParse] = useState(null); // State for the parser
@@ -60,27 +60,28 @@ function CommunityPage() {
   }, [token]);
 
   useEffect(() => {
-    const fetchArticle = async () => {
+    const fetchstory = async () => {
       setLoading(true);
 
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}`
+          `${process.env.NEXT_PUBLIC_API_URL}/stories/${id}`
         );
 
         if (response.ok) {
           const data = await response.json();
-          setArticle(data);
+          setStory(data);
+          console.log(data)
           setLoading(false);
         } else {
-          throw new Error("Failed to fetch the article");
+          throw new Error("Failed to fetch the story");
         }
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchArticle();
+    fetchstory();
   }, [id]);
 
   const handleLogout = () => {
@@ -88,7 +89,7 @@ function CommunityPage() {
     window.location.href = "/communitylogin";
   };
 
-  const { description } = article;
+  const { description } = story;
 
   return (
     <div>
@@ -97,7 +98,7 @@ function CommunityPage() {
           <a href="/">InnerGlow</a>
         </h1>
         <nav className="md:flex justify-center items-center gap-4 md:gap-8 uppercase font-bold hidden">
-          <a href={`/community/articles`}>Articles</a>
+          <a href={`/community/storys`}>storys</a>
           <a href={`/chat/${chatid}`}>Chat</a>
           <a href="/stories">Stories</a>
           {token && (
@@ -128,7 +129,7 @@ function CommunityPage() {
                 </span>
               </h3>
             )}
-            <a href={`/community/articles`}>Articles</a>
+            <a href={`/community/storys`}>storys</a>
             <a href={`/chat/${chatid}`}>Chat</a>
             <a href="/stories">Stories</a>
             <button
@@ -145,14 +146,14 @@ function CommunityPage() {
           <div className="w-[25px] h-[3px] bg-white" />
         </div>
       </header>
-      {article !== "udefined" || article !== null ? (
+      {story !== "udefined" || story !== null ? (
         <div className="w-full flex flex-col gap-2 md:gap-4 pt-[100px] px-[20px] space-x-4 md:px-[80px] space-y-2">
           <div className="space-y-2">
             <p className="text-blue-500 font-semibold pt-2 text-3xl">
-              {article?.title}
+              {story?.title}
             </p>
             <p className="text-sm font-semibold text-gray-800">
-              {convertDateTime(article?.time)}
+              {convertDateTime(story?.time)}
             </p>
           </div>
           <div className="flex gap-2 pt-2 mt-[15px] mb-[15px]">
@@ -160,31 +161,18 @@ function CommunityPage() {
             <p className="text-blue-500 ">
               by{" "}
               <span className="capitalize font-semibold text-lg">
-                {article?.createdBy}
+                {story?.createdBy}
               </span>
             </p>
           </div>
         </div>
       ) : (
-        <p>No article found...</p>
+        <p>No story found...</p>
       )}
 
-      {article && (
+      {story && (
         <div className="pt-[10px] p-[20px] md:px-20 md:pt-[10px]">
           <div className="w-full flex flex-col md:flex-row">
-            <div className="bg-gray-400 h-[350px]">
-              {loading ? (
-                <p className="font-bold text-white mt-8 ml-8 text-lg">
-                  Loading..
-                </p>
-              ) : (
-                <img
-                  src={article?.image}
-                  alt="article-image"
-                  className="object-cover rounded-lg md:w-[400px] h-full hover:scale-105"
-                />
-              )}
-            </div>
             <div className="gap-6 flex flex-col px-2 md:py-0 py-6 w-full md:w-[600px] md:ml-[60px]">
               {/* Render HTML content using html-react-parser */}
               <div className="text-xl leading-relaxed font-sans text-gray-800">
@@ -195,11 +183,11 @@ function CommunityPage() {
         </div>
       )}
 
-      <footer className="shadow w-full px-4 py-2 mt-4 text-center text-gray-500 text-sm">
+      <footer className="shadow w-full px-4 py-2 mt-4 text-center text-gray-500 text-sm fixed bottom-0">
         <p>ZenTalk AI 2024. All rights reserved.</p>
       </footer>
     </div>
   );
 }
 
-export default CommunityPage;
+export default StoryPage;

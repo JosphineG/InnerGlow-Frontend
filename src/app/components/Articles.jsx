@@ -95,7 +95,7 @@ function Articles() {
           <a href="/">
             <h1 className="text-white font-bold text-3xl">InnerGlow</h1>
           </a>
-          <nav className="md:flex justify-between items-center gap-4 md:gap-20 capitalize hidden">
+          <nav className="md:flex justify-center items-center  md:gap-8 uppercase font-bold hidden gap-2  flex-1">
             <a href={`/chat/${chatid}`}>Chat</a>
             <a href="/stories">Stories</a>
             {token && (
@@ -106,16 +106,16 @@ function Articles() {
                 </span>
               </h3>
             )}
-            <button
-              onClick={handleLogout}
-              className="bg-white p-2 rounded-lg px-4"
-            >
-              <span className="text-blue-500 font-semibold">Logout</span>
-            </button>
           </nav>
+          <button
+            onClick={handleLogout}
+            className="bg-white p-2 rounded-lg px-4 hidden md:flex"
+          >
+            <span className="text-blue-500 font-semibold">Logout</span>
+          </button>
           {isOpen && (
             <div
-              className="md:hidden flex bg-blue-500 justify-center gap-[50px] font-semibold absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500"
+              className="md:hidden flex bg-blue-500 justify-center gap-[50px] absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 font-bold uppercase"
               onClick={openNav}
             >
               {token && (

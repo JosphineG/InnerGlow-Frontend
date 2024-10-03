@@ -2,7 +2,7 @@
 import HomeNav from "./HomeNav";
 import LandingPage from "./LandingPage"
 import Footer from "./Footer"
-
+import About from "./About";
 import Community from "./Community";
 
 const Home = () => {
@@ -10,6 +10,7 @@ const Home = () => {
     <div className="flex flex-col">
       <HomeNav/>
       <LandingPage />
+      <About/>
       <Community/>
       <Footer/>
     </div>

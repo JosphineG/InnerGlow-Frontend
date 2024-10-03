@@ -16,19 +16,19 @@ function ChatNav({ name }) {
       <a href="/">
         <h1 className="text-white font-bold text-3xl">InnerGlow</h1>
       </a>
-      <nav className="md:flex justify-between items-center gap-4 md:gap-20 capitalize text-white hidden">
+      <nav className="md:flex justify-center items-center gap-4 md:gap-8  text-white hidden uppercase font-bold">
         <a href="/community/articles">Articles</a>
         <a href="/stories">Stories</a>
         <h3 className="text-lg p-2 rounded-lg px-4">
           Hi, <span className="text-white font-bold">{name}</span>
         </h3>
-        <button onClick={handleLogout} className="bg-white p-2 rounded-lg px-4">
-          <span className="text-blue-500 font-semibold">Logout</span>
-        </button>
       </nav>
+      <button onClick={handleLogout} className="bg-white p-2 rounded-lg px-4 hidden md:flex">
+        <span className="text-blue-500 font-semibold">Logout</span>
+      </button>
       {isOpen && (
         <div
-          className="md:hidden flex bg-blue-500 bg-gradient-to-b from-blue-500 to-violet-500 justify-center gap-[50px] font-semibold absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white"
+          className="md:hidden flex bg-blue-500 bg-gradient-to-b from-blue-500 to-violet-500 justify-center gap-[50px]  absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white font-bold uppercase"
           onClick={openNav}
         >
           <h3 className="text-lg  rounded-lg ">

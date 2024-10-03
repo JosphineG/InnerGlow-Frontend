@@ -33,7 +33,7 @@ function Stories({ stories }) {
     dots: true,
     arrows: false,
     infinite: true,
-    speed: 5000,
+    speed: 40000,
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
