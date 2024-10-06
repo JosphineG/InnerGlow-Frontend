@@ -75,35 +75,39 @@ function Stories({ stories }) {
   //   : stories?.description;
 
   return (
-    <div className="w-screen px-4 py-6 md:px-12 lg:px-20 bg-blue-200 md:mb-8">
-      <Slider {...settings}>
-        {stories?.map((story, index) => (
-          <div
-            key={index}
-            className="shadow-3xl shadow-black justify-center items-center flex text-black p-1"
-          >
-            <div className="bg-white px-6 py-6 rounded-2xl flex flex-row items-start justify-start space-x-4 mx-2 ">
-              <div>
-                <p className="w-full text-black  font-semibold">
-                  {story.title}
-                </p>
-                <p>{convertDateTime(story?.time)}</p>
-                <div className="px-2 py-2 overflow-x-clip mt-4">
-                  <span>
-                    {parse(story?.description?.slice(0, 150) + "...")}
-                  </span>
-                  <span className="text-blue-500 font-semibold py-2 text-md">
-                    <a href={`/community/story/${story?._id}`}>Read more</a>
-                  </span>
+    <div className="w-screen px-4 py-6 md:px-12 lg:px-20 bg-blue-200 lg:mb-8">
+      {stories?.length > 0 ? (
+        <Slider {...settings}>
+          {stories?.map((story, index) => (
+            <div
+              key={index}
+              className="shadow-3xl shadow-black justify-center items-center flex text-black p-1"
+            >
+              <div className="bg-white px-6 py-6 rounded-2xl flex flex-row items-start justify-start space-x-4 mx-2 ">
+                <div>
+                  <p className="w-full text-black  font-semibold">
+                    {story.title}
+                  </p>
+                  <p>{convertDateTime(story?.time)}</p>
+                  <div className="px-2 py-2 overflow-x-clip mt-4">
+                    <span>
+                      {parse(story?.description?.slice(0, 150) + "...")}
+                    </span>
+                    <span className="text-blue-500 font-semibold py-2 text-lg">
+                      <a href={`/community/stories/${story?._id}`}>Read more</a>
+                    </span>
+                  </div>
+                  <p className="font-semibold text-gray-700 text-lg ml-2 mt-8 flex flex-row items-center gap-2">
+                    <FaUser /> {story.createdBy}
+                  </p>
                 </div>
-                <p className="font-semibold text-gray-700 text-lg ml-2 mt-8 flex flex-row items-center gap-2">
-                  <FaUser /> {story.createdBy}
-                </p>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      ) : (
+        <p className="font-bold text-lg text-gray-700 w-full text-center">Loading stories...</p>
+      )}
     </div>
   );
 }

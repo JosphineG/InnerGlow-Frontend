@@ -91,13 +91,13 @@ function Articles() {
     <>
       <Toaster />
       <div className="relative">
-        <header className="w-screen flex justify-between items-center gap-2 px-4 md:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
+        <header className="w-screen flex justify-between items-center gap-2 px-4 lg:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
           <a href="/">
             <h1 className="text-white font-bold text-3xl">InnerGlow</h1>
           </a>
-          <nav className="md:flex justify-center items-center  md:gap-8 uppercase font-bold hidden gap-2  flex-1">
+          <nav className="lg:flex justify-center items-center  lg:gap-8 uppercase text-sm font-semibold  hidden gap-2  flex-1">
             <a href={`/chat/${chatid}`}>Chat</a>
-            <a href="/stories">Stories</a>
+            <a href="/community/stories">Stories</a>
             {token && (
               <h3 className="text-lg p-2 rounded-lg px-4">
                 Hi,{" "}
@@ -109,13 +109,13 @@ function Articles() {
           </nav>
           <button
             onClick={handleLogout}
-            className="bg-white p-2 rounded-lg px-4 hidden md:flex"
+            className="bg-white p-2 rounded-lg px-4 hidden lg:flex"
           >
             <span className="text-blue-500 font-semibold">Logout</span>
           </button>
           {isOpen && (
             <div
-              className="md:hidden flex bg-blue-500 justify-center gap-[50px] absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 font-bold uppercase"
+              className="lg:hidden flex bg-blue-500 justify-center gap-[50px] absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-lg rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 text-sm font-semibold  uppercase"
               onClick={openNav}
             >
               {token && (
@@ -128,7 +128,7 @@ function Articles() {
               )}
 
               <a href={`/chat/${chatid}`}>Chat</a>
-              <a href="/stories">Stories</a>
+              <a href="/community/stories">Stories</a>
 
               <button
                 onClick={handleLogout}
@@ -138,13 +138,13 @@ function Articles() {
               </button>
             </div>
           )}
-          <div className="space-y-[5px] md:hidden" onClick={openNav}>
+          <div className="space-y-[5px] lg:hidden" onClick={openNav}>
             <div className="w-[25px] h-[3px] bg-white" />
             <div className="w-[25px] h-[3px] bg-white" />
             <div className="w-[25px] h-[3px] bg-white" />
           </div>
         </header>
-        <div className="md:px-[65px] pt-[100px]  px-[15px] w-screen">
+        <div className="lg:px-[65px] pt-[100px]  px-[15px] w-screen">
           <div className="flex items-center justify-between w-full">
             <h2 className="text-3xl font-semibold text-blue-500">Articles</h2>
             <button
@@ -155,10 +155,14 @@ function Articles() {
               <span>Create Article</span>
             </button>
           </div>
-          <div className="px-[10px] w-full mt-6 grid grid-cols-1 md:grid-cols-3 items-center gap-6 ">
-            {articles?.map((article, index) => (
-              <SingleArticle key={index} article={article} />
-            ))}
+          <div className="px-[10px] w-full mt-6 grid grid-cols-1 lg:grid-cols-3 items-center gap-6 ">
+            {articles?.length > 0 ? (
+              articles?.map((article, index) => (
+                <SingleArticle key={index} article={article} />
+              ))
+            ) : (
+              <p className="text-lg font-bold text-gray-600">Loading Articles...</p>
+            )}
           </div>
         </div>
         {isModelOpen && (

@@ -1,16 +1,16 @@
-"use client"
-import React, { useState } from 'react'
-import Link from 'next/link';
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import useAuthToken from "../../../hooks/useAuth";
 
 const HomeNavbar = () => {
   const { getItem } = useAuthToken();
-  const { chatid,token } = getItem();
-    const [isOpen, setIsOpen] = useState(false);
-    const openNav = () => {
-      setIsOpen(!isOpen);
-    };
+  const { chatid, token } = getItem();
+  const [isOpen, setIsOpen] = useState(false);
+  const openNav = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <nav className="bg-blue-500  p-4 fixed w-screen z-[999] h-[80px] flex items-center justify-between ">
       <div className="container mx-auto flex items-center justify-between w-full">
@@ -21,7 +21,7 @@ const HomeNavbar = () => {
           {/* <Image src="/innerglow.png" alt="Logo" className="mr-2" width={200} height={0}/> */}
         </div>
 
-        <div className="flex-1 md:flex items-center space-x-2   justify-center gap-[30px] mr-[-150px] hidden text-lg font-bold uppercase">
+        <div className="flex-1 lg:flex items-center space-x-2   justify-center gap-[30px] mr-[-150px] hidden text-sm font-semibold uppercase">
           <Link href="#about" className="text-white hover:text-gray-200">
             About
           </Link>
@@ -46,7 +46,7 @@ const HomeNavbar = () => {
       </div>
       {isOpen && (
         <div
-          className="md:hidden flex bg-blue-500 justify-center gap-[50px] font-bold absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 text-lg uppercase"
+          className="lg:hidden flex bg-blue-500 justify-center gap-[50px]  absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-lg rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 text-sm font-semibold  uppercase"
           onClick={openNav}
         >
           <Link href="#about" className="text-white hover:text-gray-200">
@@ -71,7 +71,7 @@ const HomeNavbar = () => {
           </div>
         </div>
       )}
-      <div className="space-y-[5px] md:hidden" onClick={openNav}>
+      <div className="space-y-[5px] lg:hidden" onClick={openNav}>
         <div className="w-[25px] h-[3px] bg-white" />
         <div className="w-[25px] h-[3px] bg-white" />
         <div className="w-[25px] h-[3px] bg-white" />

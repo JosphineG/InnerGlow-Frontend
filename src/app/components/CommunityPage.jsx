@@ -92,14 +92,14 @@ function CommunityPage() {
 
   return (
     <div>
-      <header className="w-screen flex justify-between items-center gap-2 px-4 md:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
+      <header className="w-screen flex justify-between items-center gap-2 px-4 lg:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
         <h1 className="text-white font-bold text-3xl">
           <a href="/">InnerGlow</a>
         </h1>
-        <nav className="md:flex justify-center items-center gap-4 md:gap-8 uppercase font-bold hidden">
+        <nav className="lg:flex justify-center items-center gap-4 lg:gap-8 uppercase text-sm font-semibold  hidden">
           <a href={`/community/articles`}>Articles</a>
           <a href={`/chat/${chatid}`}>Chat</a>
-          <a href="/stories">Stories</a>
+          <a href="/community/stories">Stories</a>
           {token && (
             <h3 className="text-lg rounded-lg ">
               Hi,{" "}
@@ -111,13 +111,13 @@ function CommunityPage() {
         </nav>
         <button
           onClick={handleLogout}
-          className="bg-white p-2 rounded-lg px-4 hidden md:flex"
+          className="bg-white p-2 rounded-lg px-4 hidden lg:flex"
         >
           <span className="text-blue-500 font-semibold ">Logout</span>
         </button>
         {isOpen && (
           <div
-            className="md:hidden flex bg-blue-500 justify-center gap-[50px] absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 uppercase font-bold"
+            className="lg:hidden flex bg-blue-500 justify-center gap-[50px] absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-lg rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 uppercase text-sm font-semibold "
             onClick={openNav}
           >
             {token && (
@@ -130,7 +130,7 @@ function CommunityPage() {
             )}
             <a href={`/community/articles`}>Articles</a>
             <a href={`/chat/${chatid}`}>Chat</a>
-            <a href="/stories">Stories</a>
+            <a href="/community/stories">Stories</a>
             <button
               onClick={handleLogout}
               className="bg-white p-2 rounded-lg px-4"
@@ -139,14 +139,14 @@ function CommunityPage() {
             </button>
           </div>
         )}
-        <div className="space-y-[5px] md:hidden" onClick={openNav}>
+        <div className="space-y-[5px] lg:hidden" onClick={openNav}>
           <div className="w-[25px] h-[3px] bg-white" />
           <div className="w-[25px] h-[3px] bg-white" />
           <div className="w-[25px] h-[3px] bg-white" />
         </div>
       </header>
       {article !== "udefined" || article !== null ? (
-        <div className="w-full flex flex-col gap-2 md:gap-4 pt-[100px] px-[20px] space-x-4 md:px-[80px] space-y-2">
+        <div className="w-full flex flex-col gap-2 lg:gap-4 pt-[100px] px-[20px] space-x-4 lg:px-[80px] space-y-2">
           <div className="space-y-2">
             <p className="text-blue-500 font-semibold pt-2 text-3xl">
               {article?.title}
@@ -170,8 +170,8 @@ function CommunityPage() {
       )}
 
       {article && (
-        <div className="pt-[10px] p-[20px] md:px-20 md:pt-[10px]">
-          <div className="w-full flex flex-col md:flex-row">
+        <div className="pt-[10px] p-[20px] lg:px-20 lg:pt-[10px]">
+          <div className="w-full flex flex-col lg:flex-row">
             <div className="bg-gray-400 h-[350px]">
               {loading ? (
                 <p className="font-bold text-white mt-8 ml-8 text-lg">
@@ -181,11 +181,11 @@ function CommunityPage() {
                 <img
                   src={article?.image}
                   alt="article-image"
-                  className="object-cover rounded-lg md:w-[400px] h-full hover:scale-105"
+                  className="object-cover rounded-lg lg:w-[400px] h-full hover:scale-105"
                 />
               )}
             </div>
-            <div className="gap-6 flex flex-col px-2 md:py-0 py-6 w-full md:w-[600px] md:ml-[60px]">
+            <div className="gap-6 flex flex-col px-2 lg:py-0 py-6 w-full lg:w-[600px] lg:ml-[60px]">
               {/* Render HTML content using html-react-parser */}
               <div className="text-xl leading-relaxed font-sans text-gray-800">
                 {description && parse ? parse(description) : description}

@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer
       id="contact"
-      className="w-screen sticky bg-[#6495ED47]  p-6 gap-4 grid grid-cols-1 md:grid-cols-3 space-y-2"
+      className="w-screen sticky bg-[#6495ED47]  p-6 gap-4 grid grid-cols-1 lg:grid-cols-3 space-y-2"
     >
       <div className="space-y-3">
         <h3 className="font-bold text-2xl text-gray-700">Contacts</h3>

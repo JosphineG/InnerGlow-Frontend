@@ -55,11 +55,11 @@ function Model({ setIsModelOpen, handleFetch }) {
       return;
     }
 
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("category", category);
-    formData.append("description", description); // Holds Quill HTML content
-    formData.append("image", imageFile);
+    const forlgata = new Forlgata();
+    forlgata.append("title", title);
+    forlgata.append("category", category);
+    forlgata.append("description", description); // Holds Quill HTML content
+    forlgata.append("image", imageFile);
 
     try {
       const response = await fetch(
@@ -70,7 +70,7 @@ function Model({ setIsModelOpen, handleFetch }) {
             Accept: "application/json",
             authorization: `Bearer ${token}`,
           },
-          body: formData,
+          body: forlgata,
         }
       );
 
@@ -95,14 +95,14 @@ function Model({ setIsModelOpen, handleFetch }) {
       <Toaster />
       <div className="w-full h-full bg-[rgba(0,0,60,.9)] flex items-center justify-center">
         <div
-          className="absolute top-[60px] right-[30px] md:right-[200px] cursor-pointer"
+          className="absolute top-[60px] right-[30px] lg:right-[200px] cursor-pointer"
           onClick={() => setIsModelOpen(false)}
         >
           <p className="text-white font-semibold text-3xl">
             <FaTimes className="w-[40px] h-[40px] transition-all duration-1000 ease-in-out border rounded-full p-1" />
           </p>
         </div>
-        <div className="bg-white rounded-xl z-[999999] w-[95%] overflow-y-auto p-4 md:w-[50%] mt-8 h-[90%]">
+        <div className="bg-white rounded-xl z-[999999] w-[95%] overflow-y-auto p-4 lg:w-[50%] mt-8 h-[90%]">
           <form id="postForm" className="w-full px-2 py-2 gap-8 space-y-6">
             <div className="form-group">
               <label htmlFor="imageUpload" className="block font-bold">
@@ -116,7 +116,7 @@ function Model({ setIsModelOpen, handleFetch }) {
                 onChange={(e) => {
                   setImageFile(e.target.files[0]);
                 }}
-                className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-bold border-2"
+                className="mt-1 block w-full rounded-lg border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-bold border-2"
               />
             </div>
             <div className="form-group">
@@ -130,7 +130,7 @@ function Model({ setIsModelOpen, handleFetch }) {
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
-                className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 px-2 py-2 border-2"
+                className="mt-1 block w-full rounded-lg border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 px-2 py-2 border-2"
               />
             </div>
             <div className="form-group">
@@ -143,7 +143,7 @@ function Model({ setIsModelOpen, handleFetch }) {
                 onChange={(e) => {
                   setCategory(e.target.value);
                 }}
-                className="py-2 px-2 mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 border-2"
+                className="py-2 px-2 mt-1 block w-full rounded-lg border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 border-2"
               />
             </div>
             <div className="form-group">
@@ -156,7 +156,7 @@ function Model({ setIsModelOpen, handleFetch }) {
                   theme="snow"
                   value={description}
                   onChange={setDescription}
-                  className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                  className="mt-1 block w-full rounded-lg border-gray-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                   modules={quillModules} // Apply the modules to ReactQuill
                 />
               ) : (
@@ -167,7 +167,7 @@ function Model({ setIsModelOpen, handleFetch }) {
               type="submit"
               id="uploadButton"
               onClick={createPost}
-              className="mt-4 inline-flex items-center px-12 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="mt-4 inline-flex items-center px-12 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Create Article
             </button>

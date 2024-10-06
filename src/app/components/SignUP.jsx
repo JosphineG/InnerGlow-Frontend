@@ -124,12 +124,12 @@ const SignUp = () => {
   return (
     <>
       <Toaster />
-      <div className=" relative flex w-screen item-center justify-center md:flex-row p-12 h-screen flex-col">
+      <div className=" relative flex w-screen item-center justify-center lg:flex-row p-12 h-screen flex-col">
         <div className="absolute top-[-200px] left-[-100px] z-[-1]">
           <Donut />
         </div>
         <div className="flex items-center justify-center text-center w-full h-full gap-8">
-          <div className="hidden md:flex h-[400px] rounded-2xl">
+          <div className="hidden lg:flex h-[400px] rounded-2xl">
             <Image
               src="/virtualA.svg"
               alt="virtualAssistant image"
@@ -138,9 +138,9 @@ const SignUp = () => {
               className="object-cover  object-top rounded-2xl"
             />
           </div>
-          <div className="w-[100%] md:w-[30%]">
+          <div className="w-[100%] lg:w-[30%]">
             <div className="w-full">
-              <h2 className="mt-4 text-center md:text-2xl font-extrabold w-full text-indigo-600 text-xl">
+              <h2 className="mt-4 text-center lg:text-2xl font-extrabold w-full text-indigo-600 text-xl">
                 Create an Account
               </h2>
               <p className="mt-2 text-center text-sm text-gray-600">
@@ -155,7 +155,7 @@ const SignUp = () => {
               </p>
             </div>
             <form className="flex flex-col w-full mt-8 space-y-6">
-              <div className="w-full rounded-md shadow-sm -space-y-px">
+              <div className="w-full rounded-lg shadow-sm -space-y-px">
                 <div className="flex flex-col mb-1">
                   <label
                     htmlFor="username"
@@ -168,7 +168,7 @@ const SignUp = () => {
                     type="Name"
                     autoComplete="none"
                     required
-                    className="appearance-none rounded-none relative block w-full py-2 px-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md mb-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 small:text-sm"
+                    className="appearance-none rounded-none relative block w-full py-2 px-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-lg mb-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 small:text-sm"
                     placeholder="Username"
                   />
                 </div>
@@ -184,7 +184,7 @@ const SignUp = () => {
                     type="email"
                     autoComplete="none"
                     required
-                    className="appearance-none rounded-none relative block w-full py-2 px-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md mb-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 small:text-sm"
+                    className="appearance-none rounded-none relative block w-full py-2 px-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-lg mb-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 small:text-sm"
                     placeholder="Email address"
                   />
                 </div>
@@ -259,7 +259,7 @@ const SignUp = () => {
               <div>
                 <button
                   onClick={handleSubmit}
-                  className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-md rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-lg rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Sign Up
                 </button>

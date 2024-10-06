@@ -2,20 +2,22 @@ import React from "react";
 
 const Community = () => {
   return (
-    <div className="w-full flex  justify-center items-center p-8 rounded-lg py-6 px-4 flex-col md:pl-[120px] md:pr-[120px] mt-[20px]">
-      <h2 className="text-3xl mb-2 font-bold text-[#0C5CE5]">Community</h2>
+    <div className="w-full flex  justify-center items-center p-8 rounded-lg py-6 px-4 flex-col lg:pl-[120px] lg:pr-[120px] mt-[20px]">
+      <h2 className="text-3xl mb-[60px] lg:mb-0 font-bold text-[#0C5CE5]">
+        Community
+      </h2>
 
-      <div className="mb-4 flex w-full flex-col justify-center items-center text-center   md:flex-row gap-6 h-screen md:mt-[-160px]">
-        <div className="w-full md:w-[70%] justify-center flex items-center">
+      <div className="mb-4 flex w-full flex-col justify-center items-center text-center   lg:flex-row gap-6 lg:h-screen lg:mt-[-130px]">
+        <div className="w-full lg:w-[70%] justify-center flex items-center">
           <img
             src="/undraw.svg"
             alt="undraw img"
             className="
-            md:h-[400px] rounded-lg   
+            lg:h-[400px] rounded-lg   
            object-cover object-top"
           />
         </div>
-        <p className="text-gray-700 text-xl text-left md:w-[80%] md:mt-[-40px]">
+        <p className="text-gray-700 text-xl text-left lg:w-[80%] lg:mt-[-40px]">
           The InnerGlow community serves as a nurturing ecosystem where
           individuals come together to support, inspire, and uplift each other
           on their mental health journeys.Users can connect with like-minded
@@ -31,7 +33,7 @@ const Community = () => {
         </p>
       </div>
 
-      <div className="container mx-auto mt-8">
+      <div className="container mx-auto mt-[65px] lg:mt-4">
         <div className="flex justify-center items-center mb-4">
           <h1 className="text-[#0C5CE5] text-3xl mb-4 font-bold">
             Wellbeing - Unlock Inner Peace and Wellness

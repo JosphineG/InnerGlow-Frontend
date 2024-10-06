@@ -93,11 +93,11 @@ function History() {
 
   return (
     <div className="justify-between flex flex-col w-screen h-screen">
-      <header className="w-screen flex justify-between items-center gap-2 px-4 md:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
+      <header className="w-screen flex justify-between items-center gap-2 px-4 lg:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
         <a href="/">
           <h1 className="text-white font-bold text-3xl">InnerGlow</h1>
         </a>
-        <nav className="md:flex justify-center items-center gap-4 md:gap-8  hidden font-bold uppercase">
+        <nav className="lg:flex justify-center items-center gap-4 lg:gap-8  hidden text-sm font-semibold uppercase">
           <a href={`/chat/${chatid}`}>chat</a>
           <a href="/community/articles">Article</a>
           {token && (
@@ -109,13 +109,13 @@ function History() {
         </nav>
         <button
           onClick={handleLogout}
-          className="bg-white p-2 rounded-lg px-4 hidden md:flex"
+          className="bg-white p-2 rounded-lg px-4 hidden lg:flex"
         >
           <span className="text-blue-500 font-semibold ">Logout</span>
         </button>
         {isOpen && (
           <div
-            className="md:hidden flex bg-blue-500 justify-center gap-[50px] absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-md rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 uppercase font-bold"
+            className="lg:hidden flex bg-blue-500 justify-center gap-[50px] absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-lg rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 uppercase text-sm font-semibold "
             onClick={openNav}
           >
             {token && (
@@ -137,7 +137,7 @@ function History() {
             </button>
           </div>
         )}
-        <div className="space-y-[5px] md:hidden" onClick={openNav}>
+        <div className="space-y-[5px] lg:hidden" onClick={openNav}>
           <div className="w-[25px] h-[3px] bg-white" />
           <div className="w-[25px] h-[3px] bg-white" />
           <div className="w-[25px] h-[3px] bg-white" />
@@ -145,7 +145,7 @@ function History() {
       </header>
 
       {/* Story Creation Form */}
-      <div className="pt-[100px] md:px-[120px] px-4 flex flex-1 flex-col space-y-4 p-3  mb-4">
+      <div className="pt-[100px] lg:px-[120px] px-4 flex flex-1 flex-col space-y-4 p-3  mb-4">
         <div>
           <div className="flex items-center justify-between w-full">
             <h2 className="text-3xl font-semibold text-blue-500">
@@ -160,7 +160,11 @@ function History() {
             </button>
           </div>
           <div className="grid grid-flow-col overflow-x-auto gap-4 scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch mt-[100px] justify-center items-center">
-            <Stories stories={stories} />
+            {stories ? (
+              <Stories stories={stories} />
+            ) : (
+              <p className="font-bold  text-lg text-gray-700">Loading...</p>
+            )}
           </div>
         </div>
       </div>
@@ -169,7 +173,7 @@ function History() {
           <Model setIsModelOpen={setIsModelOpen} handleFetch={fetchStories} />
         </div>
       )}
-      <footer className="w-full  mt-4 text-center text-gray-500 text-sm shadow-lg shadow-black px-4 pt-4 py-4 sm:mb-0  bg-[#e9f1ff] md:px-[150px] sticky bottom-0">
+      <footer className="w-full  mt-4 text-center text-gray-500 text-sm shadow-lg shadow-black px-4 pt-4 py-4 sm:mb-0  bg-[#e9f1ff] lg:px-[150px] sticky bottom-0">
         <p>
           InnerGlow AI 2024. All rights reserved. Terms of services and Privacy
           policy
