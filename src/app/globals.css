@@ -67,7 +67,7 @@ ol {
   list-style-type: decimal;
   list-style: decimal;
 }
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 320px) {
   .smaller {
     padding-top: 560px;
   }
@@ -78,4 +78,4 @@ ol {
   .top{
     top: 1px;
   }
-}
+} */

@@ -2,19 +2,17 @@ import React from "react";
 
 function About() {
   return (
-    <div
-      className="w-full flex flex-col justify-center items-center text-center   py-6 px-4 bg-[#6495ED43] lg:pl-[120px] lg:pr-[120px] lg:h-screen"
-    >
+    <div className="w-full flex flex-col justify-center items-center text-center   py-6 px-4 bg-[#6495ED43] lg:pl-[120px] lg:pr-[120px] lg:h-screen mt-[20px] lg:mt-0">
       <h2 className="text-3xl mb-2 font-bold text-[#0C5CE5]">
         About InnerGlow
       </h2>
-      <div className="w-full flex flex-col lg:flex-row-reverse justify-center items-center gap-6">
+      <div className="w-full flex flex-col-reverse lg:flex-row justify-center items-center gap-6">
         <div className="w-full lg:w-[90%] justify-center flex items-center">
           <img
-            src="/smartai.png"
+            src="/virtualA.svg"
             alt=""
-                      className="
-            lg:h-[400px] rounded-lg   
+            className="
+            lg:h-[340px] rounded-lg   
            object-cover object-top"
           />
         </div>
