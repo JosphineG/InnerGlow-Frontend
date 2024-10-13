@@ -55,11 +55,11 @@ function Model({ setIsModelOpen, handleFetch }) {
       return;
     }
 
-    const forlgata = new Forlgata();
-    forlgata.append("title", title);
-    forlgata.append("category", category);
-    forlgata.append("description", description); // Holds Quill HTML content
-    forlgata.append("image", imageFile);
+    const formdata = new FormData();
+    formdata.append("title", title);
+    formdata.append("category", category);
+    formdata.append("description", description); // Holds Quill HTML content
+    formdata.append("image", imageFile);
 
     try {
       const response = await fetch(
@@ -70,7 +70,7 @@ function Model({ setIsModelOpen, handleFetch }) {
             Accept: "application/json",
             authorization: `Bearer ${token}`,
           },
-          body: forlgata,
+          body: formdata,
         }
       );
 
