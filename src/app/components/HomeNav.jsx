@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import useAuthToken from "../../../hooks/useAuth";
-
+import SelectLang from "./SelectLang";
 const HomeNavbar = () => {
   const { getItem } = useAuthToken();
   const { chatid, token } = getItem();
@@ -40,6 +40,7 @@ const HomeNavbar = () => {
             Contact
           </a>
         </div>
+        <SelectLang />
         <div className="ml-auto hidden sm:block">
           <a
             href={`/chat/${chatid}`}
@@ -66,6 +67,7 @@ const HomeNavbar = () => {
           <a href="#contact" className="text-white hover:text-gray-200">
             Contact
           </a>
+
           <div className="sm:hidden block">
             <a
               href={`/chat/${chatid}`}

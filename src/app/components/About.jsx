@@ -17,13 +17,13 @@ function About() {
           />
         </div>
         <div>
-          <p className="w-full text-left text-gray-700 text-xl lg:w-[90%] lg:mt-[-80px]">
+          <p className="w-full text-left text-gray-700 text-md lg:w-[90%] lg:mt-[-80px]">
             {`In today\'s interconnected world you can be surrounded by people,
               but still feel lonely and trusting others with our vulnerabilities
               is still hard.`}
           </p>
           <br />
-          <p className="text-left mt-2 text-gray-700 text-xl lg:w-[90%] ">
+          <p className="text-left mt-2 text-gray-700 text-md lg:w-[90%] ">
             <span className="text-blue-600 font-bold">InnerGlow</span> is an
             empathetic chatbot that serves as a confidant, providing a safe
             space for users to openly express their thoughts and emotions and

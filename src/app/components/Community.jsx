@@ -17,7 +17,7 @@ const Community = () => {
            object-cover object-top"
           />
         </div> */}
-        <p className="text-gray-700 text-xl text-left lg:w-[90%] ">
+        <p className="text-gray-700 text-md text-left lg:w-[90%] ">
           The InnerGlow community serves as a nurturing ecosystem where
           individuals come together to support, inspire, and uplift each other
           on their mental health journeys.Users can connect with like-minded
