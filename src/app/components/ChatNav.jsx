@@ -14,7 +14,12 @@ function ChatNav({ name }) {
   return (
     <header className="w-screen flex justify-between items-center gap-2 px-4 lg:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500">
       <a href="/">
-        <h1 className="text-white font-bold text-3xl">InnerGlow</h1>
+        <img
+          src="/output-onlinepngtools.png"
+          alt="Logo"
+          className="mr-2 w-[200px] object-contain "
+        />
+        {/* <h1 className="text-white font-bold text-3xl">InnerGlow</h1> */}
       </a>
       <nav className="lg:flex justify-center items-center gap-4 lg:gap-8  text-white hidden uppercase text-sm font-semibold ">
         <a href="/community/articles">Articles</a>

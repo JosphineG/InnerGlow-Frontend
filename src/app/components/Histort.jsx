@@ -95,7 +95,12 @@ function History() {
     <div className="justify-between flex flex-col w-screen h-screen">
       <header className="w-screen flex justify-between items-center gap-2 px-4 lg:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
         <a href="/">
-          <h1 className="text-white font-bold text-3xl">InnerGlow</h1>
+          <img
+            src="/output-onlinepngtools.png"
+            alt="Logo"
+            className="mr-2 w-[200px] object-contain "
+          />
+          {/* <h1 className="text-white font-bold text-3xl">InnerGlow</h1> */}
         </a>
         <nav className="lg:flex justify-center items-center gap-4 lg:gap-8  hidden text-sm font-semibold uppercase">
           <a href={`/chat/${chatid}`}>chat</a>
