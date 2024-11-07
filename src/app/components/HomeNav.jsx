@@ -16,9 +16,14 @@ const HomeNavbar = () => {
       <div className="container mx-auto flex items-center justify-between w-full">
         <div className="flex items-center">
           <a href="/">
-            <h1 className="text-white font-bold text-3xl">InnerGlow</h1>
+            <img
+              src="/output-onlinepngtools.png"
+              alt="Logo"
+              className="mr-2 w-[200px] object-contain "
+            />
+            {/* <h1 className="text-white font-bold text-3xl">InnerGlow</h1> */}
           </a>
-          {/* <Image src="/innerglow.png" alt="Logo" className="mr-2" width={200} height={0}/> */}
+          {/* */}
         </div>
 
         <div className="flex-1 lg:flex items-center space-x-2   justify-center gap-[30px] mr-[-150px] hidden text-sm font-semibold uppercase">
