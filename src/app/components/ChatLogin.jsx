@@ -3,21 +3,12 @@ import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
 import React, { useState } from "react";
 import Donut from "./Donut";
+import useAuthToken from "../../../hooks/useAuth";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { useLanguage } from "../../../hooks/useLanguageContext";
-import useTranslate from "../../../hooks/useTranslate";
 function Login() {
   const [isOpen, setIsOpen] = useState(false);
-  const { language } = useLanguage();
-
-  const loginText = useTranslate("Sign In to Your Account", language);
-  const emailtext = useTranslate("Email", language);
-  const passwordtext = useTranslate("Password", language);
-  const rememberMe = useTranslate("Remember me", language);
-  const forgotPassword = useTranslate("Forgot Password?", language);
-  const signIn = useTranslate("Sign In", language);
-  const signUp = useTranslate("Sign Up", language);
-  const or = useTranslate("Or", language);
+  const { getItem } = useAuthToken();
+  const { chatid } = getItem();
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -124,7 +115,7 @@ function Login() {
   const showPassword = () => {
     setIsOpen(!isOpen);
   };
-
+  // console.log(chatid);
   return (
     <>
       <Toaster />
@@ -146,16 +137,16 @@ function Login() {
           <div className="w-[100%] lg:w-[30%] ">
             <div className="w-full">
               <h2 className="mt-4 text-center lg:text-2xl font-extrabold w-full text-indigo-700 text-xl">
-                {loginText}
+                Sign In to Your Account
               </h2>
               <p className="mt-2 text-center text-sm text-gray-600">
                 {" "}
-                {or}
+                Or
                 <a
                   href="/chatsignup"
                   className="font-medium text-indigo-600 hover:text-indigo-300 px-2"
                 >
-                  {signUp}
+                  Sign Up
                 </a>
               </p>
             </div>
@@ -169,7 +160,7 @@ function Login() {
                     htmlFor="email"
                     className="text-sm text-left text-gray-900 font-bold mb-2"
                   >
-                    {emailtext}
+                    Email
                   </label>
                   <input
                     onChange={(e) => setEmail(e.target.value)}
@@ -187,7 +178,7 @@ function Login() {
                     htmlFor="password"
                     className="text-sm text-left text-gray-900 font-bold mb-2"
                   >
-                    {passwordtext}
+                    Password
                   </label>
                   <input
                     onChange={(e) => setPassword(e.target.value)}
@@ -225,7 +216,7 @@ function Login() {
                     className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300"
                   />
                   <label className="ml-2 block text-sm text-gray-900">
-                    {rememberMe}
+                    Remember me
                   </label>
                 </div>
                 <div className="text-sm">
@@ -233,7 +224,7 @@ function Login() {
                     href="/reset-password"
                     className="font-medium text-indigo-600 hover:text-indigo-300 "
                   >
-                    {forgotPassword}
+                    Forgot Password?
                   </a>
                 </div>
               </div>
@@ -244,7 +235,7 @@ function Login() {
                   onClick={handleLogin}
                   className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-lg rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  {signIn}
+                  Sign In
                 </button>
               </div>
             </form>

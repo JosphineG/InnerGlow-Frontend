@@ -4,8 +4,7 @@ import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 import Donut from "./Donut";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import useTranslate from "../../../hooks/useTranslate";
-import { useLanguage } from "../../../hooks/useLanguageContext";
+
 const SignUp = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCPOpen, setIsCPOpen] = useState(false);
@@ -14,18 +13,6 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
-  const { language } = useLanguage();
-  const signupText = useTranslate("Create an Account", language);
-  const signUp = useTranslate("Create an Account", language);
-  const signIn = useTranslate("Sign In", language);
-  const emailLabel = useTranslate("Email", language);
-  const passwordLabel = useTranslate("Password", language);
-  const confirmPasswordLabel = useTranslate("Confirm Password", language);
-  const usernameLabel = useTranslate("Username", language);
-  const signUpBtn = useTranslate("Sign Up", language);
-  const or = useTranslate("Or", language);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -154,16 +141,16 @@ const SignUp = () => {
           <div className="w-[100%] lg:w-[30%]">
             <div className="w-full">
               <h2 className="mt-4 text-center lg:text-2xl font-extrabold w-full text-indigo-600 text-xl">
-               {signupText}
+                Create an Account
               </h2>
               <p className="mt-2 text-center text-sm text-gray-600">
                 {" "}
-                {or}
+                Or
                 <a
                   href="/chatlogin"
                   className="font-medium text-indigo-600 hover:text-indigo-300 px-2"
                 >
-                  {signIn}
+                  Sign In
                 </a>
               </p>
             </div>
@@ -174,7 +161,7 @@ const SignUp = () => {
                     htmlFor="username"
                     className="text-left text-sm font-bold text-gray-700 mb-1"
                   >
-                    {usernameLabel}
+                    Username
                   </label>
                   <input
                     onChange={(e) => setUserName(e.target.value)}
@@ -190,7 +177,7 @@ const SignUp = () => {
                     htmlFor="email"
                     className="text-left text-sm font-bold text-gray-700 mb-1"
                   >
-                    {emailLabel}
+                    Email
                   </label>
                   <input
                     onChange={(e) => setEmail(e.target.value)}
@@ -206,7 +193,7 @@ const SignUp = () => {
                     htmlFor="password"
                     className="text-left text-sm font-bold text-gray-700 mb-1"
                   >
-                    {passwordLabel}
+                    Password
                   </label>
                   <input
                     onChange={(e) => setPassword(e.target.value)}
@@ -238,7 +225,7 @@ const SignUp = () => {
                     htmlFor="password"
                     className="text-left text-sm font-bold text-gray-700 mb-1"
                   >
-                    {confirmPasswordLabel}
+                    Confirm Password
                   </label>
                   <input
                     onChange={(e) => setConfirmPassword(e.target.value)}
@@ -274,7 +261,7 @@ const SignUp = () => {
                   onClick={handleSubmit}
                   className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-lg rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  {signUpBtn}
+                  Sign Up
                 </button>
               </div>
             </form>
