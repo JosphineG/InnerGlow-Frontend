@@ -1,21 +1,19 @@
-
 import HomeNav from "./HomeNav";
-import LandingPage from "./LandingPage"
-import Footer from "./Footer"
+import LandingPage from "./LandingPage";
+import Footer from "./Footer";
+
 import About from "./About";
 import Community from "./Community";
 
 const Home = () => {
   return (
     <div className="flex flex-col">
-      <HomeNav/>
+      <HomeNav />
       <LandingPage />
-      <About/>
-      <Community/>
-      <Footer/>
+      <About />
+      <Community />
+      <Footer />
     </div>
-
-
   );
 };
 

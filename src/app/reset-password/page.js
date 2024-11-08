@@ -107,7 +107,7 @@ function ResetPassword() {
                 type="submit"
                 value="Send reset link"
               />
-              <a href="" className="text-blue-500 w-full text-center mt-3">
+              <a href="/chatlogin" className="text-blue-500 w-full text-center mt-3">
                 Back to login
               </a>
             </form>

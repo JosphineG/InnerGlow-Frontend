@@ -1,10 +1,9 @@
 "use client";
 import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Donut from "./Donut";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import useAuthToken from "../../../hooks/useAuth";
 function PasswordReset({ token, email }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

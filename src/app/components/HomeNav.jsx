@@ -1,16 +1,25 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import useAuthToken from "../../../hooks/useAuth";
 import SelectLang from "./SelectLang";
+import { useLanguage } from "../../../hooks/useLanguageContext";
+import useTranslate from "../../../hooks/useTranslate";
+import { FaTimes } from "react-icons/fa";
 const HomeNavbar = () => {
+  const { language, setLanguage } = useLanguage();
   const { getItem } = useAuthToken();
-  const { chatid, token } = getItem();
+  const { chatid } = getItem();
   const [isOpen, setIsOpen] = useState(false);
   const openNav = () => {
     setIsOpen(!isOpen);
   };
+
+  const about = useTranslate("About", language);
+  const community = useTranslate("Community", language);
+  const contact = useTranslate("Contact", language);
+  const getStarted = useTranslate("Get Started", language);
+
   return (
     <nav className="bg-blue-500  p-4 fixed w-screen z-[999] h-[80px] flex items-center justify-between ">
       <div className="container mx-auto flex items-center justify-between w-full">
@@ -21,51 +30,54 @@ const HomeNavbar = () => {
               alt="Logo"
               className="mr-2 w-[200px] object-contain "
             />
-            {/* <h1 className="text-white font-bold text-3xl">InnerGlow</h1> */}
           </a>
-          {/* */}
         </div>
 
         <div className="flex-1 lg:flex items-center space-x-2   justify-center gap-[30px] mr-[-150px] hidden text-sm font-semibold uppercase">
           <Link href="#about" className="text-white hover:text-gray-200">
-            About
+            {about}
           </Link>
           <Link
             href="/community/articles"
             className="text-white hover:text-gray-200"
           >
-            Community
+            {community}
           </Link>
           <a href="#contact" className="text-white hover:text-gray-200">
-            Contact
+            {contact}
           </a>
         </div>
-        <SelectLang />
+        <div className="hidden lg:block">
+          <SelectLang language={language} setLanguage={setLanguage} />
+        </div>
         <div className="ml-auto hidden sm:block">
           <a
             href={`/chat/${chatid}`}
             className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-6 rounded-l-full rounded-r-full font-semibold"
           >
-            Get Started
+            {getStarted}
           </a>
         </div>
       </div>
       {isOpen && (
         <div
           className="lg:hidden flex bg-blue-500 justify-center gap-[50px]  absolute w-[75vw] h-[100vh] flex-col items-start px-12 top-[90px] left-[-20px] shadow-lg rounded-r-[30px] transition-transform ease-in-out duration-700 z-[888] text-white bg-gradient-to-b from-blue-500 to-violet-500 text-sm font-semibold  uppercase"
-          onClick={openNav}
+          // onClick={openNav}
         >
+          <div className="lg:hidden color text-blue-500">
+            <SelectLang language={language} setLanguage={setLanguage} />
+          </div>
           <Link href="#about" className="text-white hover:text-gray-200">
-            About
+            {about}
           </Link>
           <Link
             href="/community/articles"
             className="text-white hover:text-gray-200"
           >
-            Community
+            {community}
           </Link>
           <a href="#contact" className="text-white hover:text-gray-200">
-            Contact
+            {contact}
           </a>
 
           <div className="sm:hidden block">
@@ -73,16 +85,20 @@ const HomeNavbar = () => {
               href={`/chat/${chatid}`}
               className="bg-white text-blue-500 hover:bg-blue-300 py-2 px-6 rounded-l-full rounded-r-full font-semibold"
             >
-              Get Started
+              {getStarted}
             </a>
           </div>
         </div>
       )}
-      <div className="space-y-[5px] lg:hidden" onClick={openNav}>
-        <div className="w-[25px] h-[3px] bg-white" />
-        <div className="w-[25px] h-[3px] bg-white" />
-        <div className="w-[25px] h-[3px] bg-white" />
-      </div>
+      {!isOpen ? (
+        <div className="space-y-[5px] lg:hidden" onClick={openNav}>
+          <div className="w-[25px] h-[3px] bg-white" />
+          <div className="w-[25px] h-[3px] bg-white" />
+          <div className="w-[25px] h-[3px] bg-white" />
+        </div>
+      ) : (
+        <FaTimes className="h-8 w-8 text-white" onClick={openNav} />
+      )}
     </nav>
   );
 };
