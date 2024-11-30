@@ -14,6 +14,7 @@ function LandingPage() {
   const subMessage = useTranslate("Be gentle and kind to your Mind", language);
   const getStarted = useTranslate("Get Started", language);
   const subText = useTranslate("Your Compassionate Companion", language);
+  console.log(welcomeMessage);
 
   return (
     <div className="w-screen h-screen flex-col flex justify-center items-center overflow-x-hidden lg:flex-row px-[10px] lg:px-[50px] pt-[200px] lg:pt-[100px]">

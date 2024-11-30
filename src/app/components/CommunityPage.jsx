@@ -203,7 +203,7 @@ function CommunityPage() {
       )}
 
       <footer className="shadow w-full px-4 py-2 mt-4 text-center text-gray-500 text-sm">
-        <p>ZenTalk AI 2024. All rights reserved.</p>
+        <p>Inner Glow {new Date().getFullYear()}. All rights reserved.</p>
       </footer>
     </div>
   );
