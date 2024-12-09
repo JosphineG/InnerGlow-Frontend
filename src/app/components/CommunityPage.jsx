@@ -97,7 +97,7 @@ function CommunityPage() {
           <a href="/">
             {" "}
             <img
-              src="/output-onlinepngtools.png"
+              src="/rafikiwellnesslogo.png"
               alt="Logo"
               className="mr-2 w-[200px] object-contain "
             />
@@ -203,7 +203,7 @@ function CommunityPage() {
       )}
 
       <footer className="shadow w-full px-4 py-2 mt-4 text-center text-gray-500 text-sm">
-        <p>Inner Glow {new Date().getFullYear()}. All rights reserved.</p>
+        <p>RafikiWellness {new Date().getFullYear()}. All rights reserved.</p>
       </footer>
     </div>
   );

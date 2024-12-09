@@ -15,7 +15,7 @@ function Chat() {
   const scrollRef = useRef(null);
   const promptRef = useRef(null);
   const [chatMessages, setChatMessages] = useState([]);
-  const { getItem } = useAuthToken();
+  const { getItem, clearAuthToken } = useAuthToken();
   const { token, chatid } = getItem();
   const [dataItem, setData] = useState();
   const [text, setText] = useState("");
@@ -52,7 +52,7 @@ function Chat() {
         }
       );
       if (response.ok) {
-        toast.success("Innerglow AI has responded!", { id: notification });
+        toast.success("RafikiWellness AI has responded!", { id: notification });
         const data = await response.json();
         setChatMessages([
           ...chatMessages,
@@ -119,6 +119,12 @@ function Chat() {
           const { userProfile } = await response.json();
           setData(userProfile);
         }
+        if (response.status === 401) {
+          toast.error("Your session expired, you be logged out...");
+          clearAuthToken();
+          router.push("/chatlogin");
+          return;
+        }
       } catch (error) {
         console.log(error);
       }
@@ -129,6 +135,9 @@ function Chat() {
 
   useEffect(() => {
     const fetchChatMessages = async () => {
+      if (!chatid || chatid == null) {
+        return;
+      }
       try {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/chat/${chatid}/messages`

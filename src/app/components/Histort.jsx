@@ -96,11 +96,11 @@ function History() {
       <header className="w-screen flex justify-between items-center gap-2 px-4 lg:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
         <a href="/">
           <img
-            src="/output-onlinepngtools.png"
+            src="/rafikiwellnesslogo.png"
             alt="Logo"
             className="mr-2 w-[200px] object-contain "
           />
-          {/* <h1 className="text-white font-bold text-3xl">InnerGlow</h1> */}
+          {/* <h1 className="text-white font-bold text-3xl">RafikiWellness</h1> */}
         </a>
         <nav className="lg:flex justify-center items-center gap-4 lg:gap-8  hidden text-sm font-semibold uppercase">
           <a href={`/chat/${chatid}`}>chat</a>
@@ -180,8 +180,8 @@ function History() {
       )}
       <footer className="w-full  mt-4 text-center text-gray-500 text-sm shadow-lg shadow-black px-4 pt-4 py-4 sm:mb-0  bg-[#e9f1ff] lg:px-[150px] sticky bottom-0">
         <p>
-          InnerGlow AI 2024. All rights reserved. Terms of services and Privacy
-          policy
+          RafikiWellness AI 2024. All rights reserved. Terms of services and
+          Privacy policy
         </p>
       </footer>
     </div>

@@ -6,7 +6,7 @@ import useAuthToken from "../../../hooks/useAuth";
 import SelectLang from "./SelectLang";
 import { useLanguage } from "../../../hooks/useLanguageContext";
 const HomeNavbar = () => {
-  const {language, setLanguage} = useLanguage();
+  const { language, setLanguage } = useLanguage();
   const { getItem } = useAuthToken();
   const { chatid, token } = getItem();
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +19,11 @@ const HomeNavbar = () => {
         <div className="flex items-center">
           <a href="/">
             <img
-              src="/output-onlinepngtools.png"
+              src="/rafikiwellnesslogo.png"
               alt="Logo"
               className="mr-2 w-[200px] object-contain "
             />
-            {/* <h1 className="text-white font-bold text-3xl">InnerGlow</h1> */}
+            {/* <h1 className="text-white font-bold text-3xl">RafikiWellness</h1> */}
           </a>
           {/* */}
         </div>

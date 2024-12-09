@@ -10,6 +10,7 @@ function SelectLang({ language, setLanguage }) {
           value={language}
           className="p-2 border rounded-lg"
         >
+          <option value="en">En English</option>
           <option value="es">🇪🇸 Spanish</option>
           <option value="fr">🇫🇷 French</option>
           <option value="de">🇩🇪 German</option>

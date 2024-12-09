@@ -21,7 +21,9 @@ const useTranslate = (text, targetLanguage) => {
           text: text,
         }),
       };
-
+      if (!targetLanguage) {
+        return text;
+      }
       try {
         const response = await fetch(url, options);
         if (response.ok) {

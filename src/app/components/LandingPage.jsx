@@ -10,7 +10,7 @@ function LandingPage() {
   const { language } = useLanguage(); // Default to Spanish
 
   // Translated text using the hook
-  const welcomeMessage = useTranslate("Welcome To InnerGlow", language);
+  const welcomeMessage = useTranslate("Welcome To RafikiWellness", language);
   const subMessage = useTranslate("Be gentle and kind to your Mind", language);
   const getStarted = useTranslate("Get Started", language);
   const subText = useTranslate("Your Compassionate Companion", language);
@@ -32,7 +32,7 @@ function LandingPage() {
           className="w-full lg:justify-start items-center justify-center flex mb-4 lg:mb-20"
         >
           <button className="py-4 bg-blue-500 rounded-full text-white font-semibold hover:bg-blue-400 hover:scale-105 lg:px-[100px] duration-300 px-[50px] w-full lg:w-[50%]">
-           {getStarted}
+            {getStarted}
           </button>
         </a>
 

@@ -6,7 +6,7 @@ const Community = () => {
   const { language } = useLanguage();
   const community = useTranslate("Community", language);
   const communityAbout = useTranslate(
-    `The InnerGlow community serves as a nurturing ecosystem where
+    `The RafikiWellness community serves as a nurturing ecosystem where
           individuals come together to support, inspire, and uplift each other
           on their mental health journeys.Users can connect with like-minded
           individuals, share their experiences, and find solidarity in their
@@ -15,7 +15,7 @@ const Community = () => {
   );
   const communityAbout2 = useTranslate(
     ` Through peer support, empathy, and encouragement, members of the
-          InnerGlow community find strength in unity, knowing that they are not
+          RafikiWellness community find strength in unity, knowing that they are not
           alone in their challenges. Together, they strive to break down stigmas
           surrounding mental health and create a culture of openness,
           understanding, and empowerment.`,
@@ -48,7 +48,10 @@ const Community = () => {
   const explore = useTranslate("Explore", language);
 
   return (
-    <div className="w-full flex  justify-center items-center p-8 rounded-lg py-6 px-4 flex-col lg:pl-[120px] lg:pr-[120px] mt-[20px]" id="community">
+    <div
+      className="w-full flex  justify-center items-center p-8 rounded-lg py-6 px-4 flex-col lg:pl-[120px] lg:pr-[120px] mt-[20px]"
+      id="community"
+    >
       <h2 className="text-3xl mb-[10px] lg:mb-[30px] font-bold text-[#0C5CE5]">
         {community}
       </h2>

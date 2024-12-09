@@ -94,11 +94,11 @@ function Articles() {
         <header className="w-screen flex justify-between items-center gap-2 px-4 lg:px-20 py-4 fixed z-[999] h-[80px] shadow-lg bg-blue-500 text-white">
           <a href="/">
             <img
-              src="/output-onlinepngtools.png"
+              src="/rafikiwellnesslogo.png"
               alt="Logo"
               className="mr-2 w-[200px] object-contain "
             />
-            {/* <h1 className="text-white font-bold text-3xl">InnerGlow</h1> */}
+            {/* <h1 className="text-white font-bold text-3xl">RafikiWellness</h1> */}
           </a>
           <nav className="lg:flex justify-center items-center  lg:gap-8 uppercase text-sm font-semibold  hidden gap-2  flex-1">
             <a href={`/chat/${chatid}`}>Chat</a>

@@ -23,7 +23,8 @@ function Footer() {
           <span className="font-semibold">{phone}:</span> +254795256790
         </p>
         <p className="text-gray-600">
-          <span className="font-semibold">{email}:</span> innerglow@gmail.com
+          <span className="font-semibold">{email}:</span>{" "}
+          josphinegatwiri34@gmail.com
         </p>
       </div>
       <div className="space-y-3">

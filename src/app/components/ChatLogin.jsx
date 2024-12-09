@@ -58,7 +58,7 @@ function Login() {
         // window.location.href = "/chatsignup";
       }
     } catch (error) {
-      toast.error("Error", { id: notification });
+      toast.error("Error, check your credentials ", { id: notification });
       console.error(error);
     }
   };

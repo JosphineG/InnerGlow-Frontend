@@ -5,7 +5,7 @@ import { LanguageProvider } from "../../hooks/useLanguageContext"; // Import Lan
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "InnerGlow",
+  title: "RafikiWellness",
   description: "Mental health and wellbeing",
 };
 
